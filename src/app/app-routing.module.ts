@@ -3,8 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './shared/login/login.component';
 import { NotfoundComponent } from './shared/notfound/notfound.component';
 import { UndermaintenanceComponent } from './shared/undermaintenance/undermaintenance.component';
+import { UsersComponent } from './view/users/users.component';
+import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
+  {
+    path : '',
+    component : ViewComponent,
+    children : [
+      {
+        path : '',
+        component : UsersComponent
+      }
+    ]
+  },
   {
     path : 'login',
     component : LoginComponent

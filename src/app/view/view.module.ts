@@ -1,10 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UsersComponent } from './users/users.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SmartFormComponent } from '../shared/core/components/smart-form/smart-form.component';
+import { SmartValidationComponent } from '../shared/core/components/smart-validation/smart-validation.component';
+import { SmartTableComponent } from '../shared/core/components/smart-table/smart-table.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SmarterrormessageDirective } from '../shared/core/directives/smarterrormessage.directive';
+import { SavevalidationDirective } from '../shared/core/directives/savevalidation.directive';
+
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    UsersComponent,
+    DashboardComponent,
+    SmartFormComponent,
+    SmartValidationComponent,
+    SmartTableComponent,
+    SmarterrormessageDirective,
+    SavevalidationDirective
+  ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports : [SmartFormComponent,SmartValidationComponent,SmartTableComponent,SmarterrormessageDirective,SavevalidationDirective]
 })
 export class ViewModule { }

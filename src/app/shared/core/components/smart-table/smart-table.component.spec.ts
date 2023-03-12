@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DatatableComponent } from './datatable.component';
+import { SmartTableComponent } from './smart-table.component';
 
-describe('DatatableComponent', () => {
-  let component: DatatableComponent;
-  let fixture: ComponentFixture<DatatableComponent>;
+describe('SmartTableComponent', () => {
+  let component: SmartTableComponent;
+  let fixture: ComponentFixture<SmartTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DatatableComponent ]
+      declarations: [ SmartTableComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DatatableComponent);
+    fixture = TestBed.createComponent(SmartTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
