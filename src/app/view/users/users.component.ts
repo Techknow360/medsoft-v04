@@ -11,6 +11,7 @@ export class UsersComponent implements OnInit {
   userForm! :  FormGroup
   isSubmitted :  boolean = false;
   isEditable : boolean = false;
+  smartCustomConfig :  any;
   constructor(
     private formBuilder  :  FormBuilder
   ){
@@ -19,14 +20,19 @@ export class UsersComponent implements OnInit {
 
 ngOnInit(): void {
     this.createUserForm()
+    this.smartCustomConfig ={
+      // lastName : [
+      //   {error : 'required','smartmessage' : 'Custom Message Required '},
+      //   {error : 'minlength','smartmessage' : 'Custom Message Minimum Lenth '}
+      // ]
+    }
 }
 
 createUserForm(){
-
   this.userForm =  this.formBuilder.group({
-    firstName : [null,[Validators.required,Validators.minLength(4),Validators.maxLength(6)]],
+    firstName : [null,[Validators.required,Validators.minLength(3),Validators.maxLength(6)]],
     middleName : [null,Validators.required], 
-    lastName : [null,Validators.required],
+    lastName : [null,[Validators.required,Validators.minLength(9)]],
     fatherName  : [null,Validators.required],
     address : [null,Validators.required],
     dateofbirth  : [null,Validators.required],

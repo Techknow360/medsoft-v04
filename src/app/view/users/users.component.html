@@ -1,24 +1,25 @@
 <div class="container section">
     <form [formGroup]="userForm" autocomplete="off">
     <div class="row form-group">
-        <label class="col-12">Full Name
-            <span class="mandatory-field">*</span>
-        </label>
+
         <div class="col-4"> 
-            <input placeholder="First Name" formControlName="firstName" [SmartErrorMessage]="userFormControl.firstName" [SmartLabel]="'First Name'"  [smartSubmit]="isSubmitted"  class="input-value"  type="text" />
+            <label class="col-12">Full Name<span class="mandatory-field">*</span></label>
+            <input placeholder="First Name" formControlName="firstName" [SmartErrorMessage]="userFormControl.firstName"   [smartSubmit]="isSubmitted"  class="input-value"  type="text" />
             <!-- <app-smart-validation [label]="'First Name'" [formctrl]="userFormControl.firstName.errors"  [isSubmitted]="isSubmitted"  ></app-smart-validation> -->
             <!-- <div class="text-danger" *ngIf="userFormControl.firstName.errors && (isSubmitted || userFormControl.firstName.touched )">
                 <label for="" *ngIf="userFormControl.firstName.errors.required">First name is Required</label>
             </div> -->
         </div>
         <div class="col-4">
-            <input placeholder="Middle Name" formControlName="middleName" [SmartErrorMessage]="userFormControl.middleName" [SmartLabel]="'Middle Name'"   class="input-value" type="text">
+            <label class="col-12">Middle Name<span class="mandatory-field">*</span></label>
+            <input placeholder="Middle Name" formControlName="middleName" [SmartErrorMessage]="userFormControl.middleName" [smartSubmit]="isSubmitted"  class="input-value" type="text">
             <!-- <div class="text-danger" *ngIf="userFormControl.middleName.errors && (isSubmitted || userFormControl.middleName.touched )">
                 <label for="" *ngIf="userFormControl.middleName.errors.required">Middle name is Required</label>
             </div> -->
         </div>
         <div class="col-4">
-            <input placeholder="last Name" formControlName="lastName" [SmartErrorMessage]="userFormControl.lastName" [SmartLabel]="'Last Name'"  class="input-value" type="text">
+            <label class="col-12">Last Name<span class="mandatory-field">*</span></label>
+            <input placeholder="last Name" formControlName="lastName" [SmartErrorMessage]="userFormControl.lastName" [smartCustom]="smartCustomConfig.lastName" [SmartLabel]="'Last Name'"  [smartSubmit]="isSubmitted" class="input-value" type="text">
             <!-- <div class="text-danger" *ngIf="userFormControl.lastName.errors && (isSubmitted || userFormControl.lastName.touched )">
                 <label for="" *ngIf="userFormControl.lastName.errors.required">Last name is Required</label>
             </div> -->
