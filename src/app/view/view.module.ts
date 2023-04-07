@@ -10,6 +10,7 @@ import { SmarterrormessageDirective } from '../shared/core/directives/smarterror
 import { SmartmandatoryDirective } from '../shared/core/directives/smartmandatory.directive';
 import { SmartuppercaseDirective } from '../shared/core/directives/smartuppercase.directive';
 import { SmartallowonlyDirective } from '../shared/core/directives/smartallowonly.directive';
+import { SmartinputborderDirective } from '../shared/core/directives/smartinputborder.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SmartallowonlyDirective } from '../shared/core/directives/smartallowonl
     SmartmandatoryDirective,
     SmartuppercaseDirective,
     SmartallowonlyDirective,
+    SmartinputborderDirective,
   ],
   imports: [
     CommonModule,

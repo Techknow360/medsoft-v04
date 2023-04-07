@@ -3,15 +3,15 @@
     <div class="row form-group">
         <div class="col-md-4"> 
             <label smartMandatory>Full Name</label>
-            <input placeholder="First Name" formControlName="firstName" [smartErrorMessage]="userFormControl.firstName"  [smartSubmit]="isSubmitted"  class="input-value"  type="text" />
+            <input placeholder="First Name" formControlName="firstName" [smartErrorMessage]="userFormControl.firstName"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="text" />
         </div>
         <div class="col-md-4">
             <label smartMandatory>Middle Name</label>
-            <input placeholder="Middle Name" formControlName="middleName" [smartErrorMessage]="userFormControl.middleName" [smartSubmit]="isSubmitted"  class="input-value" type="text">
+            <input placeholder="Middle Name" formControlName="middleName" [smartErrorMessage]="userFormControl.middleName" [smartSubmit]="isSubmitted" smartInputBorder  class="input-value" type="text">
         </div>
         <div class="col-md-4">
             <label smartMandatory>Last Name</label>
-            <input placeholder="last Name" formControlName="lastName" [smartErrorMessage]="userFormControl.lastName" [smartLabel]="'SOMU'" [smartCustom]="smartCustomConfig.lastName"   [smartSubmit]="isSubmitted" class="input-value" type="text">
+            <input placeholder="last Name" formControlName="lastName" [smartErrorMessage]="userFormControl.lastName" [smartLabel]="'SOMU'" [smartCustom]="smartCustomConfig.lastName" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
         </div>
     </div>
     <div class="row text-center col-12 pt-2">

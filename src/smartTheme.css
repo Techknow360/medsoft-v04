@@ -38,7 +38,6 @@ input{
 
 .invalid{
     border-left: solid red 2px !important;
-    border-right: solid red 2px !important;
 }
 
 .valid{

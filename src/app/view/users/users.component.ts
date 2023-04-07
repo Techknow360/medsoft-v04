@@ -33,13 +33,6 @@ createUserForm(){
     firstName : [null,[Validators.required,Validators.minLength(3),Validators.maxLength(6)]],
     middleName : [null,[Validators.required,Validators.pattern(/[^a-zA-Z ]/g)]], 
     lastName : [null,[Validators.required,Validators.minLength(9)]],
-    fatherName  : [null,Validators.required],
-    address : [null,Validators.required],
-    dateofbirth  : [null,Validators.required],
-    mobileno  : [null,Validators.required],
-    email :[null,Validators.required],
-    gender : [null,Validators.required],
-    location : [null,Validators.required]
   })
 }
 
