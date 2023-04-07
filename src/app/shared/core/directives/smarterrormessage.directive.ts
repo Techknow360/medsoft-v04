@@ -1,13 +1,15 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges} from '@angular/core';
 
 @Directive({
-  selector: '[SmartErrorMessage]'
+  selector: '[smartErrorMessage]'
 })
 export class SmarterrormessageDirective implements OnChanges {
-  @Input() SmartErrorMessage : any
-  @Input() SmartLabel : any
+  @Input() smartErrorMessage : any
+  @Input() smartLabel : string
   @Input() smartSubmit :  boolean = false
   @Input() smartCustom :  any = []
+  @Input() smartMultiInput :  any
+  eventArr : any=[]
   
   constructor(private el: ElementRef) {
     this.validation()
@@ -20,62 +22,116 @@ export class SmarterrormessageDirective implements OnChanges {
    }
 
    validation(){
-    const parent = this.el.nativeElement;
-    let previousNode = parent.parentElement;
-    let errDiv =  document.createElement('div');
-    errDiv.setAttribute('class','text-danger');
-    previousNode.append(errDiv);
-    ['blur','keyup'].forEach(event =>
-      parent.addEventListener(event,()=>{
-        let nextNode = parent.nextSibling;
-        nextNode.innerHTML  =  this.validationErrorMessages(parent)
-    })
-    );
+      const parent = this.el.nativeElement;
+      let parentName  =   parent.getAttribute('formcontrolname');
+      let previousNode = parent.parentElement;
+      let initialerrDiv =  document.createElement('div');
+      initialerrDiv.setAttribute('class','text-danger');
+      initialerrDiv.setAttribute('id',parentName+'_smartError');
+      let inputFileds = parent.nodeName;
+      let  inputFiledType =  parent.getAttribute('type');
+      this.eventDecider(inputFileds,inputFiledType);
+      this.eventArr.forEach(event =>
+        parent.addEventListener(event,()=>{
+          let inputFiled = parent.getAttribute('formcontrolname');
+          let errDiv = document.getElementById(inputFiled+'_smartError');
+          if(this.smartMultiInput){
+            if(errDiv != null){
+              errDiv?.remove()
+            }
+          }else{
+           if(errDiv != null){
+             errDiv.remove();
+           }
+           previousNode.append(initialerrDiv);
+            let nextNode = parent.nextSibling;
+            nextNode.innerHTML  =  this.validationErrorMessages(parent)
+          }
+      })
+      );
+   }
+
+   eventDecider(element,type){
+    this.eventArr = []
+    switch (element) {
+      case 'INPUT':
+        if(type=='radio'){
+          this.eventArr = ['blur','click']
+        }else{
+          this.eventArr = ['blur','keyup']
+        }
+        break;
+      case 'SELECT':
+        this.eventArr = ['click','blur']
+        break;
+      default: 
+        break;
+    }
    }
 
    onSubmitValidation(){
     const parent = this.el.nativeElement;
-    let previousNode = parent.parentElement;
-    let errDiv =  document.createElement('div');
-    errDiv.setAttribute('class','text-danger');
-    previousNode.append(errDiv);
-    let nextNode = parent.nextSibling;
-    nextNode.innerHTML  =  this.validationErrorMessages(parent)
+    let inputcheck  = parent.getElementsByTagName('input')
+    if(inputcheck.length  > 0){
+      let inputFiled = inputcheck[0].getAttribute('formcontrolname');
+      let checkErrDiv = document.getElementById(inputFiled+'_smartError');
+      if(checkErrDiv !=  null){
+        checkErrDiv.remove();
+      }
+      let errDiv =  document.createElement('div');
+      errDiv.setAttribute('class','text-danger');
+      errDiv.setAttribute('id',inputFiled+'_smartError');
+      parent.append(errDiv)
+      errDiv.innerHTML  =  this.validationErrorMessages(parent)
+    }else{
+      let previousNode = parent.parentElement;
+      let inputFiled = parent.getAttribute('formcontrolname');
+      let checkErrDiv = document.getElementById(inputFiled+'_smartError');
+      if(checkErrDiv !=  null){
+        checkErrDiv.remove();
+      }
+      let errDiv =  document.createElement('div');
+      errDiv.setAttribute('class','text-danger');
+      errDiv.setAttribute('id',inputFiled+'_smartError');
+      previousNode.append(errDiv);
+      let nextNode = parent.nextSibling;
+      nextNode.innerHTML  =  this.validationErrorMessages(parent)
+    }
    }
 
    switchErrorValidationMessages(){
     let err  = ''
      for(let smartMessage of this.smartCustom){
-        if(this.SmartErrorMessage?.errors?.[smartMessage.error]){
+        if(this.smartErrorMessage?.errors?.[smartMessage.error]){
             err = smartMessage?.smartmessage
         }
      }
      return err
    }
 
-   validationErrorMessages(parent){
+   validationErrorMessages(parent?){
     if(this.smartCustom && this.switchErrorValidationMessages()){
       return this.switchErrorValidationMessages()
     }else {
-      if(!this.SmartLabel){
+      if(!this.smartLabel){
         let label = parent.previousSibling.innerText;
-        this.SmartLabel = label.replace(/[^a-zA-Z ]/g, "");
+        this.smartLabel = label.replace(/[^a-zA-Z ]/g, "");
       }
       let err = ''
-      if(this.SmartErrorMessage?.status == 'INVALID'){
-        if(this.SmartErrorMessage?.errors?.required){
-          err = this.SmartLabel + " is required "
-        }else if(this.SmartErrorMessage?.errors?.minlength){
-          err = this.SmartLabel + " should contain minimum "+ this.SmartErrorMessage?.errors?.minlength?.requiredLength + " charecters";
-        }else if(this.SmartErrorMessage?.errors?.maxlength){
-          err = this.SmartLabel + " should contain Maximum "+ this.SmartErrorMessage?.errors?.maxlength?.requiredLength + " charecters";
-        }else if(this.SmartErrorMessage?.errors?.pattern || this.SmartErrorMessage?.errors?.invalid){
-          err = this.SmartLabel + " is invalid "
+      if(this.smartErrorMessage?.status == 'INVALID'){
+        if(this.smartErrorMessage?.errors?.required){
+          err = this.smartLabel + " is required "
+        }else if(this.smartErrorMessage?.errors?.minlength){
+          err = this.smartLabel + " should contain minimum "+ this.smartErrorMessage?.errors?.minlength?.requiredLength + " charecters";
+        }else if(this.smartErrorMessage?.errors?.maxlength){
+          err = this.smartLabel + " should contain Maximum "+ this.smartErrorMessage?.errors?.maxlength?.requiredLength + " charecters";
+        }else if(this.smartErrorMessage?.errors?.pattern || this.smartErrorMessage?.errors?.invalid){
+          err = this.smartLabel + " is invalid "
         }
       }else{
         err = ''
       }
       return err;
     }
-   }
+   } 
 }

@@ -7,8 +7,9 @@ import { SmartValidationComponent } from '../shared/core/components/smart-valida
 import { SmartTableComponent } from '../shared/core/components/smart-table/smart-table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SmarterrormessageDirective } from '../shared/core/directives/smarterrormessage.directive';
-import { SavevalidationDirective } from '../shared/core/directives/savevalidation.directive';
-
+import { SmartmandatoryDirective } from '../shared/core/directives/smartmandatory.directive';
+import { SmartuppercaseDirective } from '../shared/core/directives/smartuppercase.directive';
+import { SmartallowonlyDirective } from '../shared/core/directives/smartallowonly.directive';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,15 @@ import { SavevalidationDirective } from '../shared/core/directives/savevalidatio
     SmartValidationComponent,
     SmartTableComponent,
     SmarterrormessageDirective,
-    SavevalidationDirective
+    SmartmandatoryDirective,
+    SmartuppercaseDirective,
+    SmartallowonlyDirective,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  exports : [SmartFormComponent,SmartValidationComponent,SmartTableComponent,SmarterrormessageDirective,SavevalidationDirective]
+  exports : [SmartFormComponent,SmartValidationComponent,SmartTableComponent,SmarterrormessageDirective,SmartmandatoryDirective]
 })
 export class ViewModule { }
