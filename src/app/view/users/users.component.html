@@ -1,21 +1,53 @@
 <div class="container section">
     <form [formGroup]="userForm" autocomplete="off">
     <div class="row form-group">
-        <div class="col-md-4"> 
-            <label smartMandatory>Full Name</label>
+        <div class="col-md-4 smart-input"> 
+            <label>Full Name<span smartMandatory></span></label>
             <input placeholder="First Name" formControlName="firstName" [smartErrorMessage]="userFormControl.firstName"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="text" />
         </div>
-        <div class="col-md-4">
-            <label smartMandatory>Middle Name</label>
+        <div class="col-md-4 smart-input">
+            <label>Middle Name<span smartMandatory></span></label>
             <input placeholder="Middle Name" formControlName="middleName" [smartErrorMessage]="userFormControl.middleName" [smartSubmit]="isSubmitted" smartInputBorder  class="input-value" type="text">
         </div>
-        <div class="col-md-4">
-            <label smartMandatory>Last Name</label>
+        <div class="col-md-4 smart-input">
+            <label>Last Name<span smartMandatory></span></label>
             <input placeholder="last Name" formControlName="lastName" [smartErrorMessage]="userFormControl.lastName" [smartLabel]="'SOMU'" [smartCustom]="smartCustomConfig.lastName" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
         </div>
-    </div>
-    <div class="row text-center col-12 pt-2">
-        <button type="submit" class="btn btn-primary" (click)="saveUserFormDetails()">save</button>
+        <div class="col-md-4 smart-input">
+            <label>Father Name<span smartMandatory></span></label>
+            <input placeholder="Father Name" formControlName="fatherName" [smartErrorMessage]="userFormControl.fatherName" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Address<span smartMandatory></span></label>
+            <input placeholder="Address" formControlName="address" [smartErrorMessage]="userFormControl.address" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Date of Birth<span smartMandatory></span></label>
+            <input placeholder="Date of Birth" formControlName="dateofbirth" [smartErrorMessage]="userFormControl.dateofbirth" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="date">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Mobile Number<span smartMandatory></span></label>
+            <input placeholder="Mobile Number" formControlName="mobileno" [smartErrorMessage]="userFormControl.mobileno" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="number">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Email<span smartMandatory></span></label>
+            <input placeholder="Email" formControlName="email" [smartErrorMessage]="userFormControl.email" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="email">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Gender<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="gender" [smartErrorMessage]="userFormControl.gender" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="MALE">MALE</option>
+                <option value="FEMALE">FEMALE</option>
+            </select>
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Location<span smartMandatory></span></label>
+            <input placeholder="location" type="text" formControlName="location" [smartErrorMessage]="userFormControl.location" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value">
+        </div>
+        <div class="row text-center col-12 pt-2">
+            <button type="submit" class="btn btn-primary" (click)="saveUserFormDetails()">save</button>
+        </div>
     </div>
   </form>
 </div>

@@ -7,12 +7,14 @@ import { LoginComponent } from './shared/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewComponent } from './view/view.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SidenavComponent } from './shared/base/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ViewComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

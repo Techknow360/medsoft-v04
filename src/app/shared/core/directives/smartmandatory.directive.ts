@@ -10,10 +10,8 @@ export class SmartmandatoryDirective {
 
   createMandatoryIcon(){
     let parent = this.el.nativeElement;
-    let span =  document.createElement('span');
-    span.classList.add('madatory-filed')
-    span.innerText = ' * '
-    parent.append(span)
+    parent.classList.add('madatory-filed')
+    parent.innerHTML  = ' *'
   }
 
 }

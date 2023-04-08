@@ -7,6 +7,10 @@ label{
     color :#02083b;
 }
 
+.smart-input{
+    margin-top: 10px;
+}
+
 .madatory-filed{
     color: red;
     text-align: left;
@@ -31,6 +35,19 @@ input{
     font-size: 14px;
     border: solid #e3e3e3 1px;
 }
+
+/* Input type Number Spinner Remove */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+  }
 
 .uppercase {
   text-transform: uppercase;

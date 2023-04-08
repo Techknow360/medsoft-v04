@@ -11,6 +11,7 @@ import { SmartmandatoryDirective } from '../shared/core/directives/smartmandator
 import { SmartuppercaseDirective } from '../shared/core/directives/smartuppercase.directive';
 import { SmartallowonlyDirective } from '../shared/core/directives/smartallowonly.directive';
 import { SmartinputborderDirective } from '../shared/core/directives/smartinputborder.directive';
+import { SidenavComponent } from '../shared/base/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [

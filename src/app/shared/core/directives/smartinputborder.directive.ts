@@ -19,7 +19,8 @@ export class SmartinputborderDirective {
   }
   inputFiledError(){
     const parent = this.el.nativeElement;
-    ['blur','input','keyup'].forEach(event =>
+    let event  = parent.nodeName == 'SELECT' ? ['blur','click'] : ['blur','input','keyup','change','click'];
+    event.forEach(event =>
       parent.addEventListener(event,()=>{
         this.addErrorClass();
       })

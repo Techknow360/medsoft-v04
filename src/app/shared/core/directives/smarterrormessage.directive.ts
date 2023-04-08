@@ -21,6 +21,24 @@ export class SmarterrormessageDirective implements OnChanges {
     }
    }
 
+   eventDecider(element,type){
+    this.eventArr = []
+    switch (element) {
+      case 'INPUT':
+        if(type=='radio'){
+          this.eventArr = ['blur','click']
+        }else{
+          this.eventArr = ['blur','keyup']
+        }
+        break;
+      case 'SELECT':
+        this.eventArr = ['click','blur']
+        break;
+      default: 
+        break;
+    }
+   }
+
    validation(){
       const parent = this.el.nativeElement;
       let parentName  =   parent.getAttribute('formcontrolname');
@@ -50,25 +68,6 @@ export class SmarterrormessageDirective implements OnChanges {
       })
       );
    }
-
-   eventDecider(element,type){
-    this.eventArr = []
-    switch (element) {
-      case 'INPUT':
-        if(type=='radio'){
-          this.eventArr = ['blur','click']
-        }else{
-          this.eventArr = ['blur','keyup']
-        }
-        break;
-      case 'SELECT':
-        this.eventArr = ['click','blur']
-        break;
-      default: 
-        break;
-    }
-   }
-
    onSubmitValidation(){
     const parent = this.el.nativeElement;
     let inputcheck  = parent.getElementsByTagName('input')
@@ -125,7 +124,7 @@ export class SmarterrormessageDirective implements OnChanges {
           err = this.smartLabel + " should contain minimum "+ this.smartErrorMessage?.errors?.minlength?.requiredLength + " charecters";
         }else if(this.smartErrorMessage?.errors?.maxlength){
           err = this.smartLabel + " should contain Maximum "+ this.smartErrorMessage?.errors?.maxlength?.requiredLength + " charecters";
-        }else if(this.smartErrorMessage?.errors?.pattern || this.smartErrorMessage?.errors?.invalid){
+        }else if(this.smartErrorMessage?.errors?.pattern || this.smartErrorMessage?.errors?.invalid || this.smartErrorMessage?.errors?.email){
           err = this.smartLabel + " is invalid "
         }
       }else{
