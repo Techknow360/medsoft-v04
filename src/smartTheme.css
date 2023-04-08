@@ -2,6 +2,7 @@ body{
     font-size: 12pt;
     font-family: 'Times New Roman', Times, serif;
     overflow: hidden;
+    background-color: #f7f9fb;
 }
 label{
     font-size: medium;
@@ -35,6 +36,18 @@ input{
     border-radius: 3px;
     font-size: 14px;
     border: solid #e3e3e3 1px;
+}
+
+.smart-btn{
+    background-color: #03374e;
+    color: white;
+    padding: 5px 10px 5px 10px ;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+.smart-icon{
+    padding: 5px;
 }
 
 /* Input type Number Spinner Remove */

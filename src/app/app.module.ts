@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidenavComponent } from './shared/base/sidenav/sidenav.component';
 import { FooterComponent } from './shared/base/footer/footer.component';
 import { TopheaderComponent } from './shared/base/topheader/topheader.component';
+import { NotfoundComponent } from './shared/base/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TopheaderComponent } from './shared/base/topheader/topheader.component'
     ViewComponent,
     SidenavComponent,
     FooterComponent,
-    TopheaderComponent
+    TopheaderComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

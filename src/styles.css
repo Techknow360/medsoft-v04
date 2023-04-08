@@ -113,6 +113,14 @@
     text-align: center;
 }
 
+.notfound{
+    background-color: #f7f9fb;
+    margin-top: 100px;
+    text-align: center;
+}
+
+
+
 @media only screen and (max-width: 842px) {
     body{
         display: none;

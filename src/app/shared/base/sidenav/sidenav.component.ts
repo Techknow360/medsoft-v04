@@ -15,12 +15,12 @@ export class SidenavComponent implements OnInit {
 
   createSmartSideNav(){
     this.smartSideNav = [
-      {title:"Dashboard",icon:"fa-solid fa-house",navigateLink:"dashboard"},
-      {title:"Vendors",icon:"fa-solid fa-industry",navigateLink:"vendors"},
-      {title:"Users",icon:"fa-solid fa-users",navigateLink:"users"},
-      {title:"Products",icon:"fa-solid fa-capsules",navigateLink:"products"},
-      {title:"Bill",icon:"fa-solid fa-cart-shopping",navigateLink:"products"},
-      {title:"Reports",icon:"fa-solid fa-file",navigateLink:"products"}
+      {title:"Dashboard",icon:"fa-solid fa-house",navigateLink:"/dashboard"},
+      {title:"Vendors",icon:"fa-solid fa-industry",navigateLink:"/vendors"},
+      {title:"Users",icon:"fa-solid fa-users",navigateLink:"/users"},
+      {title:"Products",icon:"fa-solid fa-capsules",navigateLink:"/products"},
+      {title:"Bill",icon:"fa-solid fa-cart-shopping",navigateLink:"/bill"},
+      {title:"Reports",icon:"fa-solid fa-file",navigateLink:"/reports"}
     ]
   }
 
