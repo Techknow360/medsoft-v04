@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 40px;
     background: #323233;
     box-shadow: 1px 0 2px rgba(0, 0, 0, 0.125);
     display: flex;
@@ -43,28 +43,46 @@
 
 .hover_collapse .sidebar {
     width: 70px;
+    transition: .5s;
 }
 
 .hover_collapse .sidebar ul li a .text {
     display: none;
 }
 
-.sidebar {
+.sidebar_inner :hover {
+    transition: .5s;
+}
+
+.sidebar{
     position:fixed;
-    top: 60px;
+    top: 40px;
     left: 0;
     width: 250px;
     height: 100%;
     background: #042331;
     z-index: 1;
-    overflow-y :auto
+    overflow-y :hidden;
+    text-transform: uppercase;
 }
 
+#smart-sidebar{
+    display:  'block';
+}
+
+.smart-body{
+    margin: 60px 0px 60px 20px;
+}
+
+#smartBody{
+    transition: .5s;
+}
 .sidebar ul li a {
     display: block;
     padding: 16px 25px;
     border-bottom: 1px solid #03374e;
     color: #0e94d4;
+    transition: 0.3s;
 }
 
 .sidebar ul li a .icon {
@@ -72,6 +90,8 @@
     color: white;
     vertical-align: middle;
 }
+
+
 
 .sidebar ul li a .text {
     margin-left: 19px;
@@ -83,4 +103,18 @@
 .sidebar ul li a:hover {
     background: #0e94d4;
     color: #fff;
+}
+
+.smart-header {
+    color: grey;
+}
+
+.smart-header-title{
+    text-align: center;
+}
+
+@media only screen and (max-width: 842px) {
+    body{
+        display: none;
+    }
 }

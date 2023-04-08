@@ -1,6 +1,7 @@
 body{
     font-size: 12pt;
     font-family: 'Times New Roman', Times, serif;
+    overflow: hidden;
 }
 label{
     font-size: medium;

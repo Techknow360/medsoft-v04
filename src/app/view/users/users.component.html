@@ -1,4 +1,8 @@
 <div class="container section">
+    <div class="smart-header">
+        <span class="smart-header-title">User Registration Form</span> 
+    </div>
+    <hr>
     <form [formGroup]="userForm" autocomplete="off">
     <div class="row form-group">
         <div class="col-md-4 smart-input"> 
@@ -11,7 +15,7 @@
         </div>
         <div class="col-md-4 smart-input">
             <label>Last Name<span smartMandatory></span></label>
-            <input placeholder="last Name" formControlName="lastName" [smartErrorMessage]="userFormControl.lastName" [smartLabel]="'SOMU'" [smartCustom]="smartCustomConfig.lastName" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+            <input placeholder="last Name" formControlName="lastName" [smartErrorMessage]="userFormControl.lastName"  smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
         </div>
         <div class="col-md-4 smart-input">
             <label>Father Name<span smartMandatory></span></label>
@@ -45,9 +49,9 @@
             <label>Location<span smartMandatory></span></label>
             <input placeholder="location" type="text" formControlName="location" [smartErrorMessage]="userFormControl.location" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value">
         </div>
-        <div class="row text-center col-12 pt-2">
-            <button type="submit" class="btn btn-primary" (click)="saveUserFormDetails()">save</button>
-        </div>
+    </div>
+    <div class="row text-center pt-2">
+        <button type="submit" class="btn btn-primary" (click)="saveUserFormDetails()">save</button>
     </div>
   </form>
 </div>
