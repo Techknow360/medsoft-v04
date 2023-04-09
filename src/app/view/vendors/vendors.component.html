@@ -1,6 +1,11 @@
 <div class="container">
-    <div class="smart-header">
-        <span class="smart-header-title">Vendor Details</span> 
+    <div class="row">
+        <div class="col-6 smart-header">
+            <span class="smart-header-title">Vendor Details</span> 
+        </div>
+        <div class="col-6 d-flex flex-row-reverse">
+            <button class="smart-btn"><i class="fa fa-add"></i></button>
+        </div>
     </div>
     <hr>
     <app-smart-table [onChangeTrigger]="resetTable"  [OnChange]="true" [data]="tableData" (bodyAction)="onbodyActionClick($event)" (headerAction)="headerActionClick($event)"
