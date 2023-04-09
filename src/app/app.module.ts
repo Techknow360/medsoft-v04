@@ -22,7 +22,7 @@ import { SmartpasswordvisibleDirective } from './shared/core/directives/smartpas
     FooterComponent,
     TopheaderComponent,
     NotfoundComponent,
-    SmartpasswordvisibleDirective
+    SmartpasswordvisibleDirective,
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@
                             </div>
                             <div class="smart-input"> 
                                 <label>Password<span smartMandatory></span></label>
-                                <input placeholder="password" formControlName="password" [smartErrorMessage]="loginFormControls.password"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="password" />
+                                <input placeholder="password" formControlName="password" maxlength="15" [smartErrorMessage]="loginFormControls.password"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="password" />
                             </div>
                             <!-- <div class="pt-4">
                                <a class="link">Forgot your password?</a>
