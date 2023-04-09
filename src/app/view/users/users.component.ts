@@ -45,8 +45,8 @@ export class UsersComponent implements OnInit {
     }
 
     this.tableData = [
-      {fullName:'Parthiban',dateofbirth:"05-04-1999",gstnum:"GST01IND1234",email:"parthiban@gmail.com",mobileno:"97878787897",role:"ADMIN"},
-      {fullName:'Sireesha',dateofbirth:"13-05-1998",gstnum:"GST01IND1234",email:"sireesha@gmail.com",mobileno:"97878787897",role:"EMPLOYEE"},
+      {fullName:'Parthiban',dateofbirth:"05-04-1999",gstnum:"GST01IND1234",email:"parthiban@gmail.com",mobileno:"97878787897",role:"EMPLOYEE"},
+      {fullName:'Sireesha',dateofbirth:"13-05-1998",gstnum:"GST01IND1234",email:"sireesha@gmail.com",mobileno:"97878787897",role:"ADMIN"},
     ]
   }
 
@@ -59,7 +59,7 @@ export class UsersComponent implements OnInit {
   }
 
   createNewVendors(){
-    this.modalService.open(this.usersForm,{centered:false,size:'lg'})
+    this.modalService.open(this.usersForm,{centered:true,size:'lg'})
   }
 
   closeModal(){
