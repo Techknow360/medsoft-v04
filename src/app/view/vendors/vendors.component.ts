@@ -30,15 +30,16 @@ export class VendorsComponent implements OnInit {
         {"type":"db","title":"Email ID","tbody":"emailid","width":"10","filter" : true},
         {"type":"db","title":"Phone Number","tbody":"phonenumber","width":"10","filter" : true},
         {"type":"btngroup","title":"Actions","width":"20","btnconfig":[
-          {"type":"icon","action":"VIEW","icon":"fa fa-eye","title":"View"},
-          {"type":"icon","action":"EDIT","icon":"fa fa-edit","title":"Edit"},
-          {"type":"icon","action":"HISTORY","icon":"fa fa-history","title":"Work Flow History"},
-          {"type":"icon","action":"CANCEL","icon":"fa fa-trash","title":"Cancel Application"},
+          {"type":"icon","action":"VIEW","icon":"fa fa-eye","title":"View","color":"green"},
+          {"type":"icon","action":"EDIT","icon":"fa fa-edit","title":"Edit","color":"blue"},
+          {"type":"icon","action":"HISTORY","icon":"fa fa-history","title":"Work Flow History","color":"gray"},
+          {"type":"icon","action":"CANCEL","icon":"fa fa-trash","title":"Cancel Application","color":"red"},
         ]}
       ],
     }
 
     this.tableData = [
+      {firmname:'Parthiban PVT LMT',repname:"Parthiban",gstnum:"GST01IND1234",emailid:"parthiban@gmail.com",phonenumber:"97878787897"},
       {firmname:'Parthiban PVT LMT',repname:"Parthiban",gstnum:"GST01IND1234",emailid:"parthiban@gmail.com",phonenumber:"97878787897"},
     ]
   }

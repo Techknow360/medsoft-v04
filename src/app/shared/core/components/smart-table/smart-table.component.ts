@@ -3,6 +3,8 @@ import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter,O
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import * as XLSX from 'xlsx';
+import {PaginationInstance} from 'ngx-pagination';
+
 
 @Component({
   selector: 'app-smart-table',

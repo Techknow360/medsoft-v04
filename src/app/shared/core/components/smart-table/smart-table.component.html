@@ -36,10 +36,9 @@
 </div>
 
 <div class="">
-    <table class="display nowrap table pb-3" style="width: 100%"
-        id={{tableconfig?.name}}>
+    <table class="table pb-3 table-hover " style="width: 100%" id={{tableconfig?.name}}>
         <thead>
-            <tr class="datatable-head">
+            <tr class="datatable-head smart-header">
                 <th *ngFor="let thead of tconfig.config" smartTableShort
                     [enablesort]=tableconfig?.sorting
                     (click)="sortArr(thead.tbody)">{{thead.title}}
@@ -59,8 +58,7 @@
         </thead>
         <tbody *ngIf="tabledata?.length> 0 || tabledata?.length != null"
             class="table-group-divider">
-            <tr *ngFor="let tbody of tabledata | paginate: { itemsPerPage:
-                count, currentPage: page}; let i= index" class="ft-table-body">
+            <tr *ngFor="let tbody of tabledata | paginate: { itemsPerPage:count, currentPage: page}; let i= index" class="ft-table-body">
                 <td *ngFor="let tdata of tconfig.config">
                     <span *ngIf="tdata.type=='db' && !tdata.uppercase">{{tbody[tdata.tbody] || '-' }}</span>
                     <span *ngIf="tdata.type=='db' && tdata.uppercase"> {{tbody[tdata.tbody] | uppercase }}</span>
@@ -68,13 +66,13 @@
                         <div class="d-flex">
                             <span *ngFor="let btngrp of tdata.btnconfig">
                                 <span *ngIf="!btngrp.cond && !btngrp.showcond" class="p-2">
-                                    <i *ngIf="btngrp.type == 'icon'" class="{{btngrp.icon}}" title="{{btngrp.title}}" (click)="onBodyActionClick(btngrp.action,tbody[btngrp.returnData],i)"></i>
+                                    <i *ngIf="btngrp.type == 'icon'" [ngStyle]="{'color':btngrp.color}" class="{{btngrp.icon}}" title="{{btngrp.title}}" (click)="onBodyActionClick(btngrp.action,tbody[btngrp.returnData],i)"></i>
                                 </span>
                                 <span *ngIf="btngrp.cond && btngrp.cond.value.includes(tbody[btngrp.cond.comp])">
-                                    <i *ngIf="btngrp.type == 'icon'"  class="{{btngrp.icon}}" title="{{btngrp.title}}" (click)="onBodyActionClick(btngrp.action,tbody[btngrp.returnData],i)"></i>
+                                    <i *ngIf="btngrp.type == 'icon'"  [ngStyle]="{'color':btngrp.color}" class="{{btngrp.icon}}" title="{{btngrp.title}}" (click)="onBodyActionClick(btngrp.action,tbody[btngrp.returnData],i)"></i>
                                 </span>
                                 <span *ngIf="btngrp.showcond && btngrp.showcond.comp == btngrp.showcond.value">
-                                    <i *ngIf="btngrp.type == 'icon'"  class="{{btngrp.icon}}" title="{{btngrp.title}}" (click)="onBodyActionClick(btngrp.action,tbody[btngrp.returnData],i)">{{btngrp.icon}}</i>
+                                    <i *ngIf="btngrp.type == 'icon'" [ngStyle]="{'color':btngrp.color}" class="{{btngrp.icon}}" title="{{btngrp.title}}" (click)="onBodyActionClick(btngrp.action,tbody[btngrp.returnData],i)">{{btngrp.icon}}</i>
                                 </span>
                             </span>
                         </div>
@@ -104,8 +102,9 @@
             </span>
         </div>
         <div class="col-6 d-flex flex-row-reverse">
-        <span  *ngIf="this.tableconfig.pagination && tabledata?.length != 0 && tabledata?.length != null">
-            <pagination-controls (pageChange)="onPageChange($event)" [responsive]="responsive" [maxSize]="maxSize"></pagination-controls>
+        <span *ngIf="this.tableconfig.pagination && tabledata?.length != 0 && tabledata?.length != null">
+            <pagination-controls (pageChange)="onPageChange($event)" [responsive]="responsive" [maxSize]="maxSize" [directionLinks]="true"
+            [previousLabel]="'Previous'" [nextLabel]="'Next'" ></pagination-controls>
         </span>
         </div>
     </div>
