@@ -11,6 +11,7 @@ import { SidenavComponent } from './shared/base/sidenav/sidenav.component';
 import { FooterComponent } from './shared/base/footer/footer.component';
 import { TopheaderComponent } from './shared/base/topheader/topheader.component';
 import { NotfoundComponent } from './shared/base/notfound/notfound.component';
+import { SmartpasswordvisibleDirective } from './shared/core/directives/smartpasswordvisible.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NotfoundComponent } from './shared/base/notfound/notfound.component';
     SidenavComponent,
     FooterComponent,
     TopheaderComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    SmartpasswordvisibleDirective
   ],
   imports: [
     BrowserModule,

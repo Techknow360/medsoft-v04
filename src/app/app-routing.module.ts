@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './shared/base/notfound/notfound.component';
 import { UndermaintenanceComponent } from './shared/base/undermaintenance/undermaintenance.component';
 import { LoginComponent } from './shared/login/login.component';
+import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { UsersComponent } from './view/users/users.component';
 import { ViewComponent } from './view/view.component';
 
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path : 'users',
         component : UsersComponent
+      },
+      {
+        path : 'dashboard',
+        component : DashboardComponent
       }
     ]
   },

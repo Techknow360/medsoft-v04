@@ -107,6 +107,7 @@
 
 .smart-header {
     color: grey;
+    text-transform: capitalize;
 }
 
 .smart-header-title{
