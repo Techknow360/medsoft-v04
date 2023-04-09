@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -7,12 +8,17 @@ import { Subject } from 'rxjs';
   styleUrls: ['./vendors.component.css']
 })
 export class VendorsComponent implements OnInit {
+  @ViewChild('vendorsForm') vendorsForm : any
   resetTable: Subject<boolean> = new Subject<boolean>();
   tableData :  any =[]
   tableConfig :any
 
-  constructor(){
-
+  constructor(
+    config: NgbModalConfig,
+    private modalService :  NgbModal,
+  ){
+		config.backdrop = 'static';
+		config.keyboard = false;
   }
 
   ngOnInit(): void {
@@ -50,5 +56,13 @@ export class VendorsComponent implements OnInit {
 
   headerActionClick(type){
 
+  }
+
+  createNewVendors(){
+    this.modalService.open(this.vendorsForm,{centered:false,size:'lg'})
+  }
+
+  closeModal(){
+    this.modalService.dismissAll()
   }
 }

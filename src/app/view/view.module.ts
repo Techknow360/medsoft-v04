@@ -17,6 +17,9 @@ import { SmartDashboardCardsComponent } from '../shared/core/components/smart-da
 import { VendorsComponent } from './vendors/vendors.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SmarttableshortDirective } from '../shared/core/directives/smarttableshort.directive';
+import { NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { VendorformComponent } from './vendors/vendorform/vendorform.component';
+import { UsersformComponent } from './users/usersform/usersform.component';
 
 @NgModule({
   declarations: [
@@ -34,15 +37,18 @@ import { SmarttableshortDirective } from '../shared/core/directives/smarttablesh
     SmartinputborderDirective,
     SmarttableshortDirective,
     VendorsComponent,
+    VendorformComponent,
+    UsersformComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    NgbModule
     
   ],
-  providers :[DatePipe],
+  providers :[DatePipe,NgbModalConfig],
   exports : [SmartFormComponent,SmartValidationComponent,SmartTableComponent,SmarterrormessageDirective,SmartmandatoryDirective]
 })
 export class ViewModule { }

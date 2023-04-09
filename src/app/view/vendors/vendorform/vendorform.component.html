@@ -1,0 +1,31 @@
+<form [formGroup]="vendorsForm" autocomplete="off">
+    <div class="row form-group">
+        <div class="col-md-4 smart-input"> 
+            <label>Firm/Company Name<span smartMandatory></span></label>
+            <input placeholder="Firm/Company Name" formControlName="firmname" [smartErrorMessage]="vendorsFormControl.firmname"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="text" />
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Representative Name<span smartMandatory></span></label>
+            <input placeholder="Representative Name" formControlName="repname" [smartErrorMessage]="vendorsFormControl.repname" [smartSubmit]="isSubmitted" smartInputBorder  class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>GST Number<span smartMandatory></span></label>
+            <input placeholder="GST Number" formControlName="gstnum" [smartErrorMessage]="vendorsFormControl.gstnum"  smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>	Email ID<span smartMandatory></span></label>
+            <input placeholder="Email ID" formControlName="emailid" [smartErrorMessage]="vendorsFormControl.emailid" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Phone Number<span smartMandatory></span></label>
+            <input placeholder="Phone Number" formControlName="phonenumber" [smartErrorMessage]="vendorsFormControl.phonenumber" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-12 smart-input">
+            <label>Address<span smartMandatory></span></label>
+            <textarea placeholder="Address" formControlName="vaddress" rows="6" [smartErrorMessage]="vendorsFormControl.vaddress" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text"></textarea>
+        </div>
+    </div>
+    <div class="text-center pt-2">
+        <button type="submit" class="smart-btn" (click)="saveVendorsFormDetails()">save</button>
+    </div>
+  </form>
