@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { UsersComponent } from './users/users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SmartFormComponent } from '../shared/core/components/smart-form/smart-form.component';
@@ -14,6 +14,9 @@ import { SmartinputborderDirective } from '../shared/core/directives/smartinputb
 import { SidenavComponent } from '../shared/base/sidenav/sidenav.component';
 import { SmartChartComponent } from '../shared/core/components/smart-chart/smart-chart.component';
 import { SmartDashboardCardsComponent } from '../shared/core/components/smart-dashboard-cards/smart-dashboard-cards.component';
+import { VendorsComponent } from './vendors/vendors.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SmarttableshortDirective } from '../shared/core/directives/smarttableshort.directive';
 
 @NgModule({
   declarations: [
@@ -29,12 +32,17 @@ import { SmartDashboardCardsComponent } from '../shared/core/components/smart-da
     SmartuppercaseDirective,
     SmartallowonlyDirective,
     SmartinputborderDirective,
+    SmarttableshortDirective,
+    VendorsComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
+    
   ],
+  providers :[DatePipe],
   exports : [SmartFormComponent,SmartValidationComponent,SmartTableComponent,SmarterrormessageDirective,SmartmandatoryDirective]
 })
 export class ViewModule { }

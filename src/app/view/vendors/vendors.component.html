@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="smart-header">
+        <span class="smart-header-title">Vendor Details</span> 
+    </div>
+    <hr>
+    <app-smart-table [onChangeTrigger]="resetTable"  [OnChange]="true" [data]="tableData" (bodyAction)="onbodyActionClick($event)" (headerAction)="headerActionClick($event)"
+    [tconfig]="tableConfig"></app-smart-table>
+</div>

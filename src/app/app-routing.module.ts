@@ -5,6 +5,7 @@ import { UndermaintenanceComponent } from './shared/base/undermaintenance/underm
 import { LoginComponent } from './shared/login/login.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { UsersComponent } from './view/users/users.component';
+import { VendorsComponent } from './view/vendors/vendors.component';
 import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path : 'dashboard',
         component : DashboardComponent
+      },
+      {
+        path : 'vendors',
+        component :  VendorsComponent
       }
     ]
   },
