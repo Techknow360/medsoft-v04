@@ -1,0 +1,39 @@
+<form [formGroup]="customerForm" autocomplete="off">
+    <div class="row form-group">
+        <div class="col-md-4 smart-input"> 
+            <label>Customer ID<span smartMandatory></span></label>
+            <input placeholder="Customer ID" formControlName="custid" [smartErrorMessage]="customerFormControl.custid"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="text" />
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Customer Name<span smartMandatory></span></label>
+            <input placeholder="Customer Name" formControlName="cname" [smartErrorMessage]="customerFormControl.cname" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Age<span smartMandatory></span></label>
+            <input placeholder="Age" formControlName="cage" [smartErrorMessage]="customerFormControl.cage" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="number">
+        </div>
+        <div class="col-md-4 smart-input"  *ngIf="isShowGuardian">
+            <label>Guardian Name<span></span></label>
+            <input placeholder="Guardian Name" formControlName="cguradname" [smartErrorMessage]="customerFormControl.cguradname" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Phone Number<span smartMandatory></span></label>
+            <input placeholder="Phone Number" formControlName="cphoneno" [smartErrorMessage]="customerFormControl.cphoneno" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="number">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Gender<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="cgender" [smartErrorMessage]="customerFormControl.cgender" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="MALE">MALE</option>
+                <option value="FEMALE">FEMALE</option>
+            </select>
+        </div>
+        <div class="col-md-12 smart-input">
+            <label>Address<span smartMandatory></span></label>
+            <textarea placeholder="Address" formControlName="caddr" rows="6" [smartErrorMessage]="customerFormControl.caddr" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text"></textarea>
+        </div>
+    </div>
+    <div class="text-center pt-2">
+        <button type="submit" class="smart-btn" (click)="savecustomerFormDetails()">save</button>
+    </div>
+  </form>

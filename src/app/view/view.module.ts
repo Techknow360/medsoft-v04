@@ -20,6 +20,8 @@ import { SmarttableshortDirective } from '../shared/core/directives/smarttablesh
 import { NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VendorformComponent } from './vendors/vendorform/vendorform.component';
 import { UsersformComponent } from './users/usersform/usersform.component';
+import { CustomersComponent } from './customers/customers.component';
+import { CustomerformComponent } from './customers/customerform/customerform.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { UsersformComponent } from './users/usersform/usersform.component';
     VendorsComponent,
     VendorformComponent,
     UsersformComponent,
+    CustomersComponent,
+    CustomerformComponent,
   ],
   imports: [
     CommonModule,

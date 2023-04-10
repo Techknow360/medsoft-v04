@@ -17,7 +17,8 @@ export class SidenavComponent implements OnInit {
     this.smartSideNav = [
       {title:"Dashboard",icon:"fa-solid fa-house",navigateLink:"/dashboard"},
       {title:"Vendors",icon:"fa-solid fa-industry",navigateLink:"/vendors"},
-      {title:"Users",icon:"fa-solid fa-users",navigateLink:"/users"},
+      {title:"Users",icon:"fa-solid fa-user",navigateLink:"/users"},
+      {title:"Customers",icon:"fa-solid fa-users",navigateLink:"/customers"},
       {title:"Products",icon:"fa-solid fa-capsules",navigateLink:"/products"},
       {title:"Bill",icon:"fa-solid fa-cart-shopping",navigateLink:"/bill"},
       {title:"Reports",icon:"fa-solid fa-file",navigateLink:"/reports"}

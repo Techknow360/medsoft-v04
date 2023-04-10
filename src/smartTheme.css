@@ -79,11 +79,11 @@ input::-webkit-inner-spin-button {
 }
 
 .invalid{
-    border-left: solid red 2px !important;
+    border-bottom : solid red 2px !important;
 }
 
 .valid{
-    border-left: solid green 2px !important;
+    border-bottom : solid green 2px !important;
 }
 
 /* .disabled {
@@ -91,7 +91,7 @@ input::-webkit-inner-spin-button {
 } */
 
 .untouched {
-    border-left: solid blue 2px !important;
+    border-bottom: solid blue 2px !important;
 }
 
 .error-msg{

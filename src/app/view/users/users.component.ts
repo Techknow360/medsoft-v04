@@ -59,7 +59,7 @@ export class UsersComponent implements OnInit {
   }
 
   createNewVendors(){
-    this.modalService.open(this.usersForm,{centered:true,size:'lg'})
+    this.modalService.open(this.usersForm,{centered:false,size:'lg'})
   }
 
   closeModal(){
