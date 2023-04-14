@@ -28,13 +28,16 @@ export class BillingComponent implements OnInit {
   }
 
   addNewTab(): void {
-    const newTabIndex = this.tabs.length + 1;
-    this.tabs.push({
-      title: `Dynamic Title ${newTabIndex}`,
-      content: `Dynamic content ${newTabIndex}`,
-      disabled: false,
-      removable: true
-    });
+    if(this.tabs.length < 6){
+      const newTabIndex = this.tabs.length + 1;
+      this.tabs.push({
+        title: `Dynamic Title ${newTabIndex}`,
+        content: `Dynamic content ${newTabIndex}`,
+        disabled: false,
+        removable: true,
+        active :true
+      });
+    }
   }
  
   removeTabHandler(tab: ITab): void {

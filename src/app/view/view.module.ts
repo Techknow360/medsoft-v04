@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { UsersComponent } from './users/users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -25,6 +25,10 @@ import { BillingComponent } from './billing/billing.component';
 import { BillformComponent } from './billing/billform/billform.component';
 import { SmartautoheightDirective } from '../shared/core/directives/smartautoheight.directive';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 @NgModule({
@@ -57,9 +61,13 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     ReactiveFormsModule,
     NgxPaginationModule,
     NgbModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot(),
     TabsModule.forRoot()
     
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers :[DatePipe,NgbModalConfig],
   exports : [SmartFormComponent,SmartValidationComponent,SmartTableComponent,SmarterrormessageDirective,SmartmandatoryDirective]
 })

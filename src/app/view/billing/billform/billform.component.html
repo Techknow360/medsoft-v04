@@ -38,7 +38,7 @@
     </div>
     <div [smartAutoHeight]="300" #billScroll > 
         <table class="table text-secondary "  >
-            <thead class="sticky-top">
+            <thead class="bg-light sticky-top">
                 <tr>
                     <th></th>
                     <th>Product Name</th>
@@ -94,3 +94,5 @@
             Print <i class="fa fa-print"></i> 
     </button>
 </div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-beat" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

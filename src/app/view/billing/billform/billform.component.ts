@@ -1,6 +1,8 @@
 import { Component, HostListener, OnInit, Inject, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { NotifyService } from 'src/app/api-services/common/notify.service';
+import { SpinnerService } from 'src/app/api-services/common/spinner.service';
 
 @Component({
   selector: 'app-billform',
@@ -16,20 +18,17 @@ export class BillformComponent implements OnInit {
   isbillprint : boolean = false
   elem: any;
   isFullScreen : boolean = false
-  billMaxHeight : any = 200  
 
   constructor( 
     @Inject(DOCUMENT) private document: any,
     private formBuilder: FormBuilder,
-   
+    private notify : NotifyService,
+    private spinner :  SpinnerService
     ) { }
 
   ngOnInit(): void {
     this.elem = document.documentElement;
     this.initiateForm();
-    window.addEventListener('resize',(event)=>{
-      this.billMaxHeight  = screen.availHeight
-    })
   }
   @HostListener('window:keypress', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
@@ -100,10 +99,16 @@ export class BillformComponent implements OnInit {
 
   saveBillDetails(){
     this.isbillprint = true
-    console.log(this.getbillitemsTableArrayControls);
+    if(this.billform.valid){
+
+    }else{
+      this.notify.error("Please Fill The Required Fields")
+    }
   }
 
   resetDetails(){
+    this.isSubmitted = false;
+    this.isbillprint = false;
     this.ngOnInit();
   }
 
@@ -150,6 +155,18 @@ export class BillformComponent implements OnInit {
   }
   createNewBill(){
     this.createNew.emit()
+  }
+
+  selectEvent(items){
+
+  }
+
+  onChangeSearch(search : string){
+
+  }
+
+  onFocused(event){
+
   }
 
 }
