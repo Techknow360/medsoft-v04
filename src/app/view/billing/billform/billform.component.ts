@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
+import { Component, HostListener, OnInit, Inject, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -8,8 +8,9 @@ import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./billform.component.css']
 })
 export class BillformComponent implements OnInit {
+  @Output("createNew") createNew : EventEmitter<any> = new EventEmitter();
   @ViewChild('billScroll') private billScrollDown: ElementRef;
-  signleUser :  boolean = false
+  signleUser :  boolean = true
   billform !: FormGroup
   isSubmitted :  boolean = false
   isbillprint : boolean = false
@@ -146,6 +147,9 @@ export class BillformComponent implements OnInit {
 
   ngAfterViewChecked() {        
     this.scrollToBottom();        
+  }
+  createNewBill(){
+    this.createNew.emit()
   }
 
 }

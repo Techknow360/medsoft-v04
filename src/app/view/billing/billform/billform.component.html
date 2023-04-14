@@ -23,7 +23,7 @@
         <div  class="col-3" >
             <input type="text" class="input-value" placeholder="Address *" formControlName="custaddr" [smartErrorMessage]="customerDetailsControls.custaddr" [smartMessage]="false" [smartLabel]="'Address'" [smartSubmit]="isSubmitted || isbillprint" smartInputBorder>
         </div>
-        <div  class="col-2">
+        <div  class="col-3">
             <button class="btn btn-success btn-sm" (click)="saveCustomerDetails()"><i class="fa fa-save"></i></button>
             <button class="btn btn-outline-info btn-sm m-2" (click)="toggleFullScreen()">
                 <i [ngClass]="isFullScreen ? 'fa fa-minimize' : 'fa fa-expand' "></i>
@@ -31,11 +31,14 @@
             <button class="btn btn-outline-secondary btn-sm m-2" (click)="resetDetails()"> 
                      <i class="fa fa-refresh"></i> 
             </button>
+            <button class="btn btn-outline-success btn-sm m-2" (click)="createNewBill()"> 
+                <i class="fa-solid fa-up-right-from-square"></i> 
+       </button>
         </div>
     </div>
     <div [smartAutoHeight]="300" #billScroll > 
         <table class="table text-secondary "  >
-            <thead class="bg-light sticky-top">
+            <thead class="sticky-top">
                 <tr>
                     <th></th>
                     <th>Product Name</th>

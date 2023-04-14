@@ -2,11 +2,12 @@
     visibility: hidden;
   }
   ::ng-deep.bs-remove-tab:after {
-    content: "\f1f8";
+    content: "\f00d";
     font-family: FontAwesome;
-    font-size: .7em;
+    /* font-size: .7em; */
     /* padding-left: 2px; */
     color: inherit;
     position: absolute;
     visibility: visible;
+    color: red;
   }

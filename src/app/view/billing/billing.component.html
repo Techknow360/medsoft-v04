@@ -10,7 +10,7 @@
          (removed)="removeTabHandler(tabz)"
          [customClass]="tabz.customClass!">
          <div class="mt-2">
-            <app-billform></app-billform> 
+            <app-billform (createNew)="addNewTab()"></app-billform> 
          </div>
     </tab>
   </tabset>

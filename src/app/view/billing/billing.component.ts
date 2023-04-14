@@ -19,18 +19,11 @@ interface ITab {
 export class BillingComponent implements OnInit {
   tabs: ITab[] = [
     { title: 'Dynamic Title 1', content: 'Dynamic content 1', removable: false, disabled: false,active: true,},
-    { title: 'Dynamic Title 2', content: 'Dynamic content 2', removable: true, disabled: false,active: false,},
-    { title: 'Dynamic Title 3', content: 'Dynamic content 3', removable: true, disabled: false,active: false,},
   ];
 
-  constructor(
-    
-  ){
-    
-  }
+  constructor(){}
 
   ngOnInit(): void {
-    
 
   }
 
