@@ -1,0 +1,63 @@
+<form [formGroup]="productsitemsForm" autocomplete="off">
+    <div class="row form-group">
+        <div class="col-md-4 smart-input"> 
+            <label>Firm/Company Name<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="vendors_ID" [smartErrorMessage]="productsitemsFormControl.vendors_ID" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="01">PARTBIBAN PVT LMT</option>
+                <option value="02">SIREESHA PVT LMT</option>
+            </select>
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Quantity<span smartMandatory></span></label>
+            <input placeholder="Quantity" formControlName="pquant" [smartErrorMessage]="productsitemsFormControl.pquant" [smartSubmit]="isSubmitted" smartInputBorder  class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Inventory Price<span smartMandatory></span></label>
+            <input placeholder="Inventory Price" formControlName="invprice" [smartErrorMessage]="productsitemsFormControl.invprice"  smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>	MRP Price<span smartMandatory></span></label>
+            <input placeholder="MRP Price" formControlName="mrp_price" [smartErrorMessage]="productsitemsFormControl.mrp_price" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Discount<span smartMandatory></span></label>
+            <input placeholder="Discount" formControlName="discount" [smartErrorMessage]="productsitemsFormControl.discount" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Sales Price<span smartMandatory></span></label>
+            <input placeholder="Sales Price" formControlName="salse_price" [smartErrorMessage]="productsitemsFormControl.salse_price" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Expiry Date<span smartMandatory></span></label>
+            <input placeholder="Expiry Date" formControlName="salse_price" [smartErrorMessage]="productsitemsFormControl.salse_price" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Statutory & Taxation<span smartMandatory></span></label>
+            <input placeholder="Statutory & Taxation" formControlName="staxation" [smartErrorMessage]="productsitemsFormControl.staxation" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>HSN Code<span smartMandatory></span></label>
+            <input placeholder="HSN Code" formControlName="hsncode" [smartErrorMessage]="productsitemsFormControl.hsncode" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Tax<span smartMandatory></span></label>
+            <input placeholder="Tax" formControlName="tax" [smartErrorMessage]="productsitemsFormControl.tax" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>CGST<span smartMandatory></span></label>
+            <input placeholder="CGST" formControlName="cgst" [smartErrorMessage]="productsitemsFormControl.cgst" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>SGST<span smartMandatory></span></label>
+            <input placeholder="SGST" formControlName="sgst" [smartErrorMessage]="productsitemsFormControl.sgst" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-12 smart-input">
+            <label>Description<span smartMandatory></span></label>
+            <textarea placeholder="Description" formControlName="desc" rows="6" [smartErrorMessage]="productsitemsFormControl.desc" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text"></textarea>
+        </div>
+    </div>
+    <div class="text-center pt-2">
+        <button type="submit" class="smart-btn" (click)="saveproductsitemsFormDetails()">save</button>
+    </div>
+  </form>

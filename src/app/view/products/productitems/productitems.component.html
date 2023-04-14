@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6 smart-header">
-            <span class="smart-header-title">Products Details</span> 
+            <span class="smart-header-title">Products Items Details</span> 
         </div>
         <div class="col-6 d-flex flex-row-reverse">
             <button class="smart-btn" (click)="createNewVendors()"><i class="fa fa-add"></i></button>
@@ -12,13 +12,13 @@
     [tconfig]="tableConfig"></app-smart-table>
 </div>
 
-<ng-template #productsForm let-c="close" let-d="dismiss"> 
+<ng-template #productItemForm let-c="close" let-d="dismiss"> 
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" class="ft-popup-heading text-center brand-text-color">Product Details Form
+        <h5 class="modal-title" id="exampleModalLabel" class="ft-popup-heading text-center brand-text-color">Product Items Form
         </h5>
 		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
     </div>
     <div class="modal-body">
-        <app-productform></app-productform>
+        <app-productitemform></app-productitemform>
     </div>
 </ng-template>

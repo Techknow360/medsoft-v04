@@ -6,6 +6,7 @@ import { LoginComponent } from './shared/login/login.component';
 import { BillingComponent } from './view/billing/billing.component';
 import { CustomersComponent } from './view/customers/customers.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
+import { ProductitemsComponent } from './view/products/productitems/productitems.component';
 import { ProductsComponent } from './view/products/products.component';
 import { UsersComponent } from './view/users/users.component';
 import { VendorsComponent } from './view/vendors/vendors.component';
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path : 'products',
         component : ProductsComponent
+      },
+      {
+        path : 'productitems',
+        component : ProductitemsComponent
       }
     ]
   },

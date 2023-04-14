@@ -30,6 +30,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ProductsComponent } from './products/products.component';
 import { ProductformComponent } from './products/productform/productform.component';
+import { ProductitemsComponent } from './products/productitems/productitems.component';
+import { ProductitemformComponent } from './products/productitems/productitemform/productitemform.component';
 
 
 
@@ -58,6 +60,8 @@ import { ProductformComponent } from './products/productform/productform.compone
     SmartautoheightDirective,
     ProductsComponent,
     ProductformComponent,
+    ProductitemsComponent,
+    ProductitemformComponent,
   ],
   imports: [
     CommonModule,

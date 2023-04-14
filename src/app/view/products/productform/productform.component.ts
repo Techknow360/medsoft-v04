@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotifyService } from 'src/app/api-services/common/notify.service';
+import { SpinnerService } from 'src/app/api-services/common/spinner.service';
 
 @Component({
   selector: 'app-productform',
@@ -11,7 +13,11 @@ export class ProductformComponent implements OnInit {
   productsForm! :  FormGroup
   isSubmitted :  boolean = false;
   isEditable : boolean = false;
-  constructor(private formBuilder  :  FormBuilder){
+  constructor(
+    private formBuilder  :  FormBuilder,
+    private notify : NotifyService,
+    private spinner  :  SpinnerService
+    ){
 
   }
 
@@ -36,6 +42,11 @@ export class ProductformComponent implements OnInit {
 
   saveproductsFormDetails(){
     this.isSubmitted = true
+    if(this.productsForm.valid){
+      this.spinner.show()
+    }else{
+      this.notify.error("Please Fill The Required Fields")
+    }
   }
 
   
