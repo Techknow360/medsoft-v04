@@ -1,0 +1,93 @@
+<div class="container">
+    <form [formGroup]="billform">
+    <div class="row" formGroupName="customerDetails" autocomplete="off">
+        <div class="col-2" >
+            <input type="text" class="input-value" placeholder="Phone Number *"  [smartAllowOnly]="'NUMBER'"  formControlName="phonenum" maxlength="10" [smartErrorMessage]="customerDetailsControls.phonenum" [smartLabel]="'Phone Number'" [smartMessage]="false" [smartSubmit]="isSubmitted || isbillprint" smartInputBorder>
+        </div>
+        <div class="col-3" >
+            <div *ngIf="signleUser">
+                <input type="text" class="input-value" placeholder="Name *" formControlName="custname" [smartErrorMessage]="customerDetailsControls.custname" [smartLabel]="'Name'" [smartMessage]="false" [smartSubmit]="isSubmitted || isbillprint" smartInputBorder>
+            </div>
+            <div *ngIf="!signleUser">
+                <select name="" id="" class="input-value" formControlName="custname" [smartErrorMessage]="customerDetailsControls.custname" [smartSubmit]="isSubmitted || isbillprint" [smartMessage]="false" [smartLabel]="'Name'" smartInputBorder>
+                    <option value="null" selected disabled >SELECT</option>
+                    <option value="PARTHIBAN">PARTHIBAN</option>
+                    <option value="SIREESHA">SIREESHA</option>
+                </select>
+                <button class="btn btn-light" (click)="signleUser=true">+</button>
+            </div>
+        </div>
+        <div class="col-1">
+            <input type="text" class="input-value" placeholder="Age *"  [smartAllowOnly]="'NUMBER'" formControlName="custage" max="100" [smartMessage]="false" [smartErrorMessage]="customerDetailsControls.custage" [smartLabel]="'Age'" [smartSubmit]="isSubmitted || isbillprint" smartInputBorder>
+        </div>
+        <div  class="col-3" >
+            <input type="text" class="input-value" placeholder="Address *" formControlName="custaddr" [smartErrorMessage]="customerDetailsControls.custaddr" [smartMessage]="false" [smartLabel]="'Address'" [smartSubmit]="isSubmitted || isbillprint" smartInputBorder>
+        </div>
+        <div  class="col-2">
+            <button class="btn btn-success btn-sm" (click)="saveCustomerDetails()"><i class="fa fa-save"></i></button>
+            <button class="btn btn-outline-info btn-sm m-2" (click)="toggleFullScreen()">
+                <i [ngClass]="isFullScreen ? 'fa fa-minimize' : 'fa fa-expand' "></i>
+            </button>
+            <button class="btn btn-outline-secondary btn-sm m-2" (click)="resetDetails()"> 
+                     <i class="fa fa-refresh"></i> 
+            </button>
+        </div>
+    </div>
+    <div [smartAutoHeight]="300" #billScroll > 
+        <table class="table text-secondary "  >
+            <thead class="bg-light sticky-top">
+                <tr>
+                    <th></th>
+                    <th>Product Name</th>
+                    <th>Exp date</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Discount</th>
+                    <th>Tax</th>
+                    <th>Net Value</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody formArrayName="billitems" >
+                <tr *ngFor="let bills of getbillitemsTableArray.controls; let i = index" [formGroupName]="i">
+                    <td style="width:2%">{{i + 1}}</td>
+                    <td>
+                        <input type="text" class="input-value" formControlName="productname"  [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].productname"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
+                    </td>
+                    <td style="width:10%">
+                        <input type="text" class="input-value" formControlName="expirydate" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].expirydate"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
+                    </td>
+                    <td style="width:10%">
+                        <input type="text" class="input-value" formControlName="quantity" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].quantity"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
+                    </td>
+                    <td style="width:10%">
+                        <input type="text" class="input-value" formControlName="unitprice" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].unitprice"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder >
+                    </td>
+                    <td style="width:5%">
+                        <input type="text" class="input-value" formControlName="discount" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].discount"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
+                    </td>
+                    <td style="width:5%">
+                        <input type="text" class="input-value" formControlName="tax" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].tax"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
+                    </td>
+                    <td style="width:10%">
+                        <input type="text" class="input-value" formControlName="netprice" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].netprice"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
+                    </td>
+                    <td style="width:10%">
+                        <i (click)="createBillForms()" class="fa fa-cart-plus p-2 text-success"></i>
+                        <i (click)="deleteBillForms(i)" class="fa fa-trash p-2 text-danger"></i>
+                        <i (click)="deleteBillForms(i)" class="fa fa-circle-info text-info"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </form>
+</div>
+<div class="position-absolute bottom-0 end-0 mb-4">
+    <!-- <button class="btn btn-outline-info btn-sm m-2" (click)="toggleFullScreen()">{{isFullScreen ? 'Exit Full Screen'  : 'Full Screen'}} 
+        <i [ngClass]="isFullScreen ? 'fa fa-minimize' : 'fa fa-expand' "></i>
+    </button> -->
+     <button class="btn btn-success btn-sm m-2" (click)="saveBillDetails()"> 
+            Print <i class="fa fa-print"></i> 
+    </button>
+</div>

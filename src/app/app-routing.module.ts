@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './shared/base/notfound/notfound.component';
 import { UndermaintenanceComponent } from './shared/base/undermaintenance/undermaintenance.component';
 import { LoginComponent } from './shared/login/login.component';
+import { BillingComponent } from './view/billing/billing.component';
 import { CustomersComponent } from './view/customers/customers.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { UsersComponent } from './view/users/users.component';
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path : 'customers',
         component : CustomersComponent
+      },
+      {
+        path :  'bill',
+        component : BillingComponent
       }
     ]
   },

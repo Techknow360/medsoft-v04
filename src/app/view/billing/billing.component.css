@@ -1,0 +1,12 @@
+::ng-deep.bs-remove-tab {
+    visibility: hidden;
+  }
+  ::ng-deep.bs-remove-tab:after {
+    content: "\f1f8";
+    font-family: FontAwesome;
+    font-size: .7em;
+    /* padding-left: 2px; */
+    color: inherit;
+    position: absolute;
+    visibility: visible;
+  }

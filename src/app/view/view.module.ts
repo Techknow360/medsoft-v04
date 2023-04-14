@@ -11,7 +11,6 @@ import { SmartmandatoryDirective } from '../shared/core/directives/smartmandator
 import { SmartuppercaseDirective } from '../shared/core/directives/smartuppercase.directive';
 import { SmartallowonlyDirective } from '../shared/core/directives/smartallowonly.directive';
 import { SmartinputborderDirective } from '../shared/core/directives/smartinputborder.directive';
-import { SidenavComponent } from '../shared/base/sidenav/sidenav.component';
 import { SmartChartComponent } from '../shared/core/components/smart-chart/smart-chart.component';
 import { SmartDashboardCardsComponent } from '../shared/core/components/smart-dashboard-cards/smart-dashboard-cards.component';
 import { VendorsComponent } from './vendors/vendors.component';
@@ -22,6 +21,11 @@ import { VendorformComponent } from './vendors/vendorform/vendorform.component';
 import { UsersformComponent } from './users/usersform/usersform.component';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerformComponent } from './customers/customerform/customerform.component';
+import { BillingComponent } from './billing/billing.component';
+import { BillformComponent } from './billing/billform/billform.component';
+import { SmartautoheightDirective } from '../shared/core/directives/smartautoheight.directive';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 
 @NgModule({
   declarations: [
@@ -32,24 +36,28 @@ import { CustomerformComponent } from './customers/customerform/customerform.com
     SmartTableComponent,
     SmartChartComponent,
     SmartDashboardCardsComponent,
+    VendorsComponent,
+    VendorformComponent,
+    UsersformComponent,
+    CustomersComponent,
+    CustomerformComponent,
+    BillingComponent,
+    BillformComponent,
     SmarterrormessageDirective,
     SmartmandatoryDirective,
     SmartuppercaseDirective,
     SmartallowonlyDirective,
     SmartinputborderDirective,
     SmarttableshortDirective,
-    VendorsComponent,
-    VendorformComponent,
-    UsersformComponent,
-    CustomersComponent,
-    CustomerformComponent,
+    SmartautoheightDirective,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    NgbModule
+    NgbModule,
+    TabsModule.forRoot()
     
   ],
   providers :[DatePipe,NgbModalConfig],

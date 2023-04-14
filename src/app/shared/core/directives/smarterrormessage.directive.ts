@@ -9,6 +9,7 @@ export class SmarterrormessageDirective implements OnChanges {
   @Input() smartSubmit :  boolean = false
   @Input() smartCustom :  any = []
   @Input() smartMultiInput :  any
+  @Input() smartMessage = true
   eventArr : any=[]
   
   constructor(private el: ElementRef) {
@@ -63,7 +64,9 @@ export class SmarterrormessageDirective implements OnChanges {
            }
            previousNode.append(initialerrDiv);
             let nextNode = parent.nextSibling;
-            nextNode.innerHTML  =  this.validationErrorMessages(parent)
+            if(this.smartMessage){
+              nextNode.innerHTML  =  this.validationErrorMessages(parent)
+            }
           }
       })
       );
@@ -81,7 +84,9 @@ export class SmarterrormessageDirective implements OnChanges {
       errDiv.setAttribute('class','text-danger');
       errDiv.setAttribute('id',inputFiled+'_smartError');
       parent.append(errDiv)
-      errDiv.innerHTML  =  this.validationErrorMessages(parent)
+      if(this.smartMessage){
+           errDiv.innerHTML  =  this.validationErrorMessages(parent)
+      }
     }else{
       let previousNode = parent.parentElement;
       let inputFiled = parent.getAttribute('formcontrolname');
@@ -94,7 +99,9 @@ export class SmarterrormessageDirective implements OnChanges {
       errDiv.setAttribute('id',inputFiled+'_smartError');
       previousNode.append(errDiv);
       let nextNode = parent.nextSibling;
-      nextNode.innerHTML  =  this.validationErrorMessages(parent)
+      if(this.smartMessage){
+           nextNode.innerHTML  =  this.validationErrorMessages(parent)
+      }
     }
    }
 

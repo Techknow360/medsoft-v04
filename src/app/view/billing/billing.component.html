@@ -1,0 +1,17 @@
+<div (click)="$event.preventDefault()">
+  <tabset>
+    <tab *ngFor="let tabz of tabs"
+         [heading]="tabz.title"
+         [active]="tabz.active!"
+         (selectTab)="tabz.active = true"
+         (deselect)="tabz.active = false"
+         [disabled]="tabz.disabled"
+         [removable]="tabz.removable"
+         (removed)="removeTabHandler(tabz)"
+         [customClass]="tabz.customClass!">
+         <div class="mt-2">
+            <app-billform></app-billform> 
+         </div>
+    </tab>
+  </tabset>
+</div>

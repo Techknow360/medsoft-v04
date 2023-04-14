@@ -1,7 +1,11 @@
+html{
+    scroll-behavior: smooth;
+}
 body{
     font-size: 12pt;
     font-family: 'Times New Roman', Times, serif;
     background-color: #f7f9fb;
+    scroll-behavior: smooth;
 }
 label{
     font-size: medium;

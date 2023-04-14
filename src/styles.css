@@ -120,7 +120,10 @@
     text-align: center;
 }
 
-
+.billtable{
+    max-height: 300px;
+    overflow-x: auto;
+}
 
 @media only screen and (max-width: 842px) {
     body{
