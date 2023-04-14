@@ -6,6 +6,7 @@ import { LoginComponent } from './shared/login/login.component';
 import { BillingComponent } from './view/billing/billing.component';
 import { CustomersComponent } from './view/customers/customers.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
+import { ProductsComponent } from './view/products/products.component';
 import { UsersComponent } from './view/users/users.component';
 import { VendorsComponent } from './view/vendors/vendors.component';
 import { ViewComponent } from './view/view.component';
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path :  'bill',
         component : BillingComponent
+      },
+      {
+        path : 'products',
+        component : ProductsComponent
       }
     ]
   },

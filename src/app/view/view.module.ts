@@ -28,6 +28,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ProductsComponent } from './products/products.component';
+import { ProductformComponent } from './products/productform/productform.component';
 
 
 
@@ -54,6 +56,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     SmartinputborderDirective,
     SmarttableshortDirective,
     SmartautoheightDirective,
+    ProductsComponent,
+    ProductformComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,43 @@
+<form [formGroup]="productsForm" autocomplete="off">
+    <div class="row form-group">
+        <div class="col-md-4 smart-input"> 
+            <label>Product Name<span smartMandatory></span></label>
+            <input placeholder="Product Name" formControlName="product_name" [smartErrorMessage]="productsFormControl.product_name"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="text" />
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Schedule<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="schedule" [smartErrorMessage]="productsFormControl.schedule" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="H">H</option>
+                <option value="X">X</option>
+            </select>
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Product Type<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="product_type" [smartErrorMessage]="productsFormControl.product_type" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="GENERIC">GENERIC</option>
+                <option value="OTHERS">OTHERS</option>
+            </select>
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Categories<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="categories" [smartErrorMessage]="productsFormControl.categories" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="SYRAP">SYRAP</option>
+                <option value="TABLETS">TABLETS</option>
+            </select>
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Brand Name<span smartMandatory></span></label>
+            <input placeholder="Brand Name" formControlName="brandname" [smartErrorMessage]="productsFormControl.brandname" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-12 smart-input">
+            <label>Description<span smartMandatory></span></label>
+            <textarea placeholder="Address" formControlName="desc" rows="6" [smartErrorMessage]="productsFormControl.desc" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text"></textarea>
+        </div>
+    </div>
+    <div class="text-center pt-2">
+        <button type="submit" class="smart-btn" (click)="saveproductsFormDetails()">save</button>
+    </div>
+  </form>
