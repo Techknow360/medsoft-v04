@@ -1,1 +1,24 @@
-<p>payments works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6 smart-header">
+            <span class="smart-header-title">Payment Details</span> 
+        </div>
+        <div class="col-6 d-flex flex-row-reverse">
+            <button class="smart-btn" (click)="createNewVendors()"><i class="fa fa-add"></i></button>
+        </div>
+    </div>
+    <hr>
+    <app-smart-table [onChangeTrigger]="resetTable"  [OnChange]="true" [data]="tableData" (bodyAction)="onbodyActionClick($event)" (headerAction)="headerActionClick($event)"
+    [tconfig]="tableConfig"></app-smart-table>
+</div>
+
+<ng-template #paymentForm let-c="close" let-d="dismiss"> 
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" class="ft-popup-heading text-center brand-text-color">Payment Details Form
+        </h5>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <app-paymentform></app-paymentform>
+    </div>
+</ng-template>

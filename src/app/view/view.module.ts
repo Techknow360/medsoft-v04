@@ -37,6 +37,7 @@ import { CustomdateformatService } from '../api-services/common/customdateformat
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { PaymentformComponent } from './payments/paymentform/paymentform.component';
 
 
 
@@ -71,6 +72,7 @@ import { PaymentsComponent } from './payments/payments.component';
     ProfileComponent,
     SettingsComponent,
     PaymentsComponent,
+    PaymentformComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,100 @@
+<form [formGroup]="paymentForm" autocomplete="off">
+    <div class="row form-group">
+        <div class="col-md-4 smart-input"> 
+            <label>Payment Type<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="paymentType" [smartErrorMessage]="paymentFormControl.paymentType" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="MISCELLANEOUE">MISCELLANEOUE</option>
+                <option value="VENDORS">VENDOR PAYMENT</option>
+            </select>
+        </div>
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymentType.value =='VENDORS'"> 
+            <label>Firm/Company Name<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="vendors_ID" [smartErrorMessage]="paymentFormControl.vendors_ID" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="01">PARTBIBAN PVT LMT</option>
+                <option value="02">SIREESHA PVT LMT</option>
+            </select>
+        </div>
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymentType.value =='VENDORS'">
+            <label>Bill Number<span smartMandatory></span></label>
+            <input placeholder="Bill Number" formControlName="billNo" [smartErrorMessage]="paymentFormControl.billNo" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymentType.value =='VENDORS'">
+            <label>Total Amount<span smartMandatory></span></label>
+            <input placeholder="Total Amount" formControlName="total_amount" [smartErrorMessage]="paymentFormControl.total_amount" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymentType.value =='VENDORS'">
+            <label>Current Balance<span smartMandatory></span></label>
+            <input placeholder="Current Balance" formControlName="cur_balance" [smartErrorMessage]="paymentFormControl.cur_balance" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+
+        <div class="col-md-4 smart-input" >
+            <label>Payment Date<span smartMandatory></span></label>
+            <input  class="input-value" id="paydate" formControlName="paydate" placeholder="DD-MM-YYYY" name="d1"  ngbDatepicker #d1="ngbDatepicker" [smartErrorMessage]="paymentFormControl.paydate"  [smartLabel]="'Payment Date'" smartInputBorder   [smartSubmit]="isSubmitted">
+            <div class="input-group-append">
+              <span class="calendar" (click)="d1.toggle()" type="button">📅</span>
+            </div>
+        </div>
+
+        <div class="col-md-4 smart-input">
+            <label>Payment Amount<span smartMandatory></span></label>
+            <input placeholder="Payment Amount" formControlName="payamount" [smartErrorMessage]="paymentFormControl.payamount" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymentType.value =='VENDORS'" >
+            <label>Balance<span smartMandatory></span></label>
+            <input placeholder="Balance" formControlName="balance" [smartErrorMessage]="paymentFormControl.balance" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymentType.value =='VENDORS'">
+            <label>Next Credit Date<span smartMandatory></span></label>
+            <input  class="input-value" id="credit_date" formControlName="credit_date" placeholder="DD-MM-YYYY" name="d2"  ngbDatepicker #d2="ngbDatepicker" [smartErrorMessage]="paymentFormControl.credit_date" smartInputBorder [smartLabel]="'Next Credit Date'"   [smartSubmit]="isSubmitted">
+            <div class="input-group-append">
+              <span class="calendar" (click)="d2.toggle()" type="button">📅</span>
+            </div>
+        </div>
+        <div class="col-md-4 smart-input"> 
+            <label>Payment Mode<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="paymode" [smartErrorMessage]="paymentFormControl.paymode"   [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="BANK">BANK</option>
+                <option value="UPI">UPI</option>
+                <option value="CHEQUE">CHEQUE</option>
+            </select>
+        </div>
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymode.value =='BANK'">
+            <label>Account Number<span smartMandatory></span></label>
+            <input placeholder="Account Number" formControlName="bankaccnum" [smartErrorMessage]="paymentFormControl.bankaccnum" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymode.value =='BANK'">
+            <label>Bank Name<span smartMandatory></span></label>
+            <input placeholder="Bank Name" formControlName="bankname" [smartErrorMessage]="paymentFormControl.bankname" [smartSubmit]="isSubmitted" smartInputBorder  class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymode.value =='BANK'">
+            <label>IFSC Code<span smartMandatory></span></label>
+            <input placeholder="IFSC Code" formControlName="bankifsc" [smartErrorMessage]="paymentFormControl.bankifsc"  smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymode.value =='BANK'">
+            <label>	Bank Branch<span smartMandatory></span></label>
+            <input placeholder="Bank Branch" formControlName="bankbranch" [smartErrorMessage]="paymentFormControl.bankbranch" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymode.value =='UPI'">
+            <label>UPI<span smartMandatory></span></label>
+            <input placeholder="UPI" formControlName="upi" [smartErrorMessage]="paymentFormControl.upi" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymode.value =='CHEQUE'">
+            <label>Check Number<span smartMandatory></span></label>
+            <input placeholder="Check Number" formControlName="checkno" [smartErrorMessage]="paymentFormControl.checkno" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-12 smart-input">
+            <label>Description<span smartMandatory></span></label>
+            <textarea placeholder="Description" formControlName="desc" rows="6" [smartErrorMessage]="paymentFormControl.desc" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text"></textarea>
+        </div>
+    </div>
+    <div class="text-center pt-2">
+        <button type="submit" class="smart-btn" (click)="savePaymentDetails()">save</button>
+    </div>
+  </form>
