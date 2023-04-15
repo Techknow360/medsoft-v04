@@ -3,8 +3,8 @@
         <span class="smart-header-title">Reports Details</span> 
     </div>
     <div class="col-6 d-flex flex-row-reverse">
-        <button class="btn btn-success" (click)="onSearch()">SEARCH <i class="fa fa-search"></i></button>
-        <button class="btn btn-primary" (click)="onReset()">REFRESH <i class="fa fa-refresh"></i></button>
+        <button class="btn btn-success btn-sm m-1" (click)="onSearch()">SEARCH <i class="fa fa-search"></i></button>
+        <button class="btn btn-primary btn-sm m-1" (click)="onReset()">REFRESH <i class="fa fa-refresh"></i></button>
     </div>
     <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-beat" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
     <form  autocomplete="off" [formGroup]="reportForm" >
