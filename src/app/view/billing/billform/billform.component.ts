@@ -3,6 +3,7 @@ import { DOCUMENT } from '@angular/common';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { NotifyService } from 'src/app/api-services/common/notify.service';
 import { SpinnerService } from 'src/app/api-services/common/spinner.service';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-billform',
@@ -12,6 +13,7 @@ import { SpinnerService } from 'src/app/api-services/common/spinner.service';
 export class BillformComponent implements OnInit {
   @Output("createNew") createNew : EventEmitter<any> = new EventEmitter();
   @ViewChild('billScroll') private billScrollDown: ElementRef;
+  @ViewChild('cameraCapture') private cameraCapture : any
   signleUser :  boolean = true
   billform !: FormGroup
   isSubmitted :  boolean = false
@@ -23,8 +25,13 @@ export class BillformComponent implements OnInit {
     @Inject(DOCUMENT) private document: any,
     private formBuilder: FormBuilder,
     private notify : NotifyService,
-    private spinner :  SpinnerService
-    ) { }
+    private spinner :  SpinnerService,
+    private modalServices :  NgbModal,
+    config: NgbModalConfig,
+    ) { 
+      config.backdrop = 'static';
+      config.keyboard = false;
+    }
 
   ngOnInit(): void {
     this.elem = document.documentElement;
@@ -148,6 +155,10 @@ export class BillformComponent implements OnInit {
     if(this.billScrollDown){
       this.billScrollDown.nativeElement.scrollTop = this.billScrollDown.nativeElement.scrollHeight;         
     }
+  }
+
+  openCameraCapture(){
+      this.modalServices.open(this.cameraCapture)
   }
 
   ngAfterViewChecked() {        

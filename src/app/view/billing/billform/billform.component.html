@@ -25,8 +25,11 @@
         </div>
         <div  class="col-3">
             <button class="btn btn-success btn-sm" (click)="saveCustomerDetails()"><i class="fa fa-save"></i></button>
-            <button class="btn btn-outline-info btn-sm m-2" (click)="toggleFullScreen()">
+            <!-- <button class="btn btn-outline-info btn-sm m-2" (click)="toggleFullScreen()">
                 <i [ngClass]="isFullScreen ? 'fa fa-minimize' : 'fa fa-expand' "></i>
+            </button> -->
+            <button class="btn btn-outline-info btn-sm m-2" (click)="openCameraCapture()"> 
+                <i class="fa fa-camera"></i> 
             </button>
             <button class="btn btn-outline-secondary btn-sm m-2" (click)="resetDetails()"> 
                      <i class="fa fa-refresh"></i> 
@@ -96,3 +99,14 @@
 </div>
 
 <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-beat" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+
+<ng-template #cameraCapture let-c="close" let-d="dismiss"> 
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" class="ft-popup-heading text-center brand-text-color">Camera Capture
+        </h5>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+       <app-upload></app-upload>
+    </div>
+</ng-template>

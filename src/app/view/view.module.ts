@@ -38,7 +38,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { PaymentformComponent } from './payments/paymentform/paymentform.component';
-
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { WebcamModule } from 'ngx-webcam';
+import { UploadComponent } from '../shared/upload/upload.component';
+import { CameraComponent } from '../shared/upload/camera/camera.component';
+import { ImageCropperComponent } from '../shared/upload/image-cropper/image-cropper.component';
 
 
 @NgModule({
@@ -57,13 +61,6 @@ import { PaymentformComponent } from './payments/paymentform/paymentform.compone
     CustomerformComponent,
     BillingComponent,
     BillformComponent,
-    SmarterrormessageDirective,
-    SmartmandatoryDirective,
-    SmartuppercaseDirective,
-    SmartallowonlyDirective,
-    SmartinputborderDirective,
-    SmarttableshortDirective,
-    SmartautoheightDirective,
     ProductsComponent,
     ProductformComponent,
     ProductitemsComponent,
@@ -73,6 +70,16 @@ import { PaymentformComponent } from './payments/paymentform/paymentform.compone
     SettingsComponent,
     PaymentsComponent,
     PaymentformComponent,
+    UploadComponent,
+    CameraComponent,
+    ImageCropperComponent,
+    SmarterrormessageDirective,
+    SmartmandatoryDirective,
+    SmartuppercaseDirective,
+    SmartallowonlyDirective,
+    SmartinputborderDirective,
+    SmarttableshortDirective,
+    SmartautoheightDirective,
   ],
   imports: [
     CommonModule,
@@ -82,6 +89,8 @@ import { PaymentformComponent } from './payments/paymentform/paymentform.compone
     NgbModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    ImageCropperModule,
+    WebcamModule,
     ToastrModule.forRoot(),
     TabsModule.forRoot()
     
