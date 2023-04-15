@@ -26,7 +26,7 @@ export class SmartTableComponent {
   isFilterEnabled :  boolean = false
   sortDir = 1;
   responsive :  boolean = true
-  showItems = [10,25,50,100]
+  showItems = [10,25,50,100,500,1000]
   maxSize: number = 7;
   currentPage : any =[];
   nestedFilter :  any
@@ -56,7 +56,8 @@ export class SmartTableComponent {
     this.generateExcelSheet();
     this.triggerOnChange();
     this.colspan = this.tconfig.config.length + 1;
-    this.tableconfig = this.tconfig.tableconfig
+    this.tableconfig = this.tconfig.tableconfig;
+    this.count = this.tconfig.tableconfig.count ? this.tconfig.tableconfig.count : 10;
     if(this.tableconfig.pagination){
       this.onShowCount();
       this.searchItems();

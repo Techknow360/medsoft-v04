@@ -16,7 +16,7 @@ import { SmartDashboardCardsComponent } from '../shared/core/components/smart-da
 import { VendorsComponent } from './vendors/vendors.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SmarttableshortDirective } from '../shared/core/directives/smarttableshort.directive';
-import { NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateParserFormatter, NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VendorformComponent } from './vendors/vendorform/vendorform.component';
 import { UsersformComponent } from './users/usersform/usersform.component';
 import { CustomersComponent } from './customers/customers.component';
@@ -32,6 +32,8 @@ import { ProductsComponent } from './products/products.component';
 import { ProductformComponent } from './products/productform/productform.component';
 import { ProductitemsComponent } from './products/productitems/productitems.component';
 import { ProductitemformComponent } from './products/productitems/productitemform/productitemform.component';
+import { ReportsComponent } from './reports/reports.component';
+import { CustomdateformatService } from '../api-services/common/customdateformat.service';
 
 
 
@@ -62,6 +64,7 @@ import { ProductitemformComponent } from './products/productitems/productitemfor
     ProductformComponent,
     ProductitemsComponent,
     ProductitemformComponent,
+    ReportsComponent,
   ],
   imports: [
     CommonModule,
@@ -76,7 +79,7 @@ import { ProductitemformComponent } from './products/productitems/productitemfor
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers :[DatePipe,NgbModalConfig],
+  providers :[DatePipe,NgbModalConfig,{provide: NgbDateParserFormatter, useClass: CustomdateformatService}],
   exports : [SmartFormComponent,SmartValidationComponent,SmartTableComponent,SmarterrormessageDirective,SmartmandatoryDirective]
 })
 export class ViewModule { }

@@ -8,6 +8,7 @@ import { CustomersComponent } from './view/customers/customers.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { ProductitemsComponent } from './view/products/productitems/productitems.component';
 import { ProductsComponent } from './view/products/products.component';
+import { ReportsComponent } from './view/reports/reports.component';
 import { UsersComponent } from './view/users/users.component';
 import { VendorsComponent } from './view/vendors/vendors.component';
 import { ViewComponent } from './view/view.component';
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path : 'productitems',
         component : ProductitemsComponent
+      },
+      {
+        path : 'reports',
+        component : ReportsComponent
       }
     ]
   },

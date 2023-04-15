@@ -47,6 +47,7 @@ input{
     padding: 5px 15px 5px 15px ;
     border-radius: 12px;
     text-transform: uppercase;
+    margin: 5px;
 }
 .smart-btn-outlet{
     font-size: small;
@@ -101,3 +102,21 @@ input::-webkit-inner-spin-button {
 .error-msg{
     font-size: 12px;
 }
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #042331;
+    border-radius: 10px
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #042331;
+  }
