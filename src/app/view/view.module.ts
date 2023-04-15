@@ -34,6 +34,9 @@ import { ProductitemsComponent } from './products/productitems/productitems.comp
 import { ProductitemformComponent } from './products/productitems/productitemform/productitemform.component';
 import { ReportsComponent } from './reports/reports.component';
 import { CustomdateformatService } from '../api-services/common/customdateformat.service';
+import { ProfileComponent } from './profile/profile.component';
+import { SettingsComponent } from './settings/settings.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 
 
@@ -65,6 +68,9 @@ import { CustomdateformatService } from '../api-services/common/customdateformat
     ProductitemsComponent,
     ProductitemformComponent,
     ReportsComponent,
+    ProfileComponent,
+    SettingsComponent,
+    PaymentsComponent,
   ],
   imports: [
     CommonModule,

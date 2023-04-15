@@ -21,7 +21,10 @@ export class SidenavComponent implements OnInit {
       {title:"Customers",icon:"fa-solid fa-users",navigateLink:"/customers"},
       {title:"Products",icon:"fa-solid fa-capsules",navigateLink:"/products"},
       {title:"Bill",icon:"fa-solid fa-cart-shopping",navigateLink:"/bill"},
-      {title:"Reports",icon:"fa-solid fa-file",navigateLink:"/reports"}
+      {title:"Reports",icon:"fa-solid fa-file",navigateLink:"/reports"},
+      {title:"Payments",icon:"fa-solid fa-credit-card",navigateLink:"/payments"},
+      {title:"Setting",icon:"fa-solid fa-gear",navigateLink:"/setting"},
+      {title:"Profile",icon:"fa-solid fa-address-card",navigateLink:"/profile"},
     ]
   }
 
