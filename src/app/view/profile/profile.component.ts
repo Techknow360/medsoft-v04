@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotifyService } from 'src/app/api-services/common/notify.service';
+import { SpinnerService } from 'src/app/api-services/common/spinner.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +13,8 @@ export class ProfileComponent implements OnInit {
   isSubmitted :  boolean = false
   constructor(
     private formBuilder  :  FormBuilder,
+    private notify : NotifyService,
+    private spinner :  SpinnerService
   ){
 
   }
@@ -21,8 +25,8 @@ export class ProfileComponent implements OnInit {
 
   createpasswordChangeForm(){
     this.passwordChangeForm = this.formBuilder.group({
-      userName  : [null,[Validators.required,Validators.minLength(8),Validators.maxLength(15)]],
-      password  : [null,[Validators.required,Validators.minLength(8),Validators.maxLength(15)]]
+      changePassword  : [null,[Validators.required,Validators.minLength(8),Validators.maxLength(15)]],
+      confirmPassword  : [null,[Validators.required,Validators.minLength(8),Validators.maxLength(15)]]
     })
   }
 
@@ -32,6 +36,11 @@ export class ProfileComponent implements OnInit {
 
   onChangePassword(){
     this.isSubmitted = true
+    if(this.passwordChangeForm.valid){
+
+    }else{
+      this.notify.error("Please Fill The Required Fields")
+    }
   }
 
 }

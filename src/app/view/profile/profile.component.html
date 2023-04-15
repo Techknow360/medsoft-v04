@@ -6,68 +6,86 @@
             <div class="card shadow border">
                 <div class="card-body d-flex flex-column">
                     <div class="smart-header text-center">
-                            Profile Details
+                        Profile Details
                         <hr/>
-                    </div>
-                       <div class="row ">
+                        </div>
+                        <div class="row ">
                             <div class="col-md-3 text-center">
-                                <img src="../../../assets/images/profile.png" class="rounded-circle" alt="Cinque Terre" width="220" height="236"> 
+                                <img src="../../../assets/images/profile.png"
+                                    class="rounded-circle" alt="Cinque Terre"
+                                    width="220" height="236">
                                 <h2 class="mt-2">
                                     Parthiban
                                 </h2>
-                            </div>  
+                            </div>
                             <div class="vr"></div>
                             <div class="col-md-5">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
                                         <label>Date of Birth : </label>
-                                        <span class="text-secondary">  05-04-1999</span></li>
+                                        <span class="text-secondary"> 05-04-1999</span></li>
                                     <li class="list-group-item">
                                         <label>Gender :</label>
-                                        <span class="text-secondary">  Male</span>
+                                        <span class="text-secondary"> Male</span>
                                     </li>
                                     <li class="list-group-item">
                                         <label>Qaualification :</label>
-                                        <span class="text-secondary">   BE</span>
+                                        <span class="text-secondary"> BE</span>
                                     </li>
                                     <li class="list-group-item">
                                         <label>Email :</label>
-                                        <span class="text-secondary">   Parthibans452@gmail.com</span>
+                                        <span class="text-secondary">
+                                            Parthibans452@gmail.com</span>
                                     </li>
                                     <li class="list-group-item">
                                         <label> Phone No :</label>
-                                        <span class="text-secondary">   6383117625</span>
+                                        <span class="text-secondary"> 6383117625</span>
                                     </li>
                                     <li class="list-group-item">
                                         <label> Designation :</label>
-                                        <span class="text-secondary">   Developer</span>
+                                        <span class="text-secondary"> Developer</span>
                                     </li>
                                     <li class="list-group-item">
                                         <label>Address :</label>
-                                        <span class="text-secondary">   Anupuram</span>
+                                        <span class="text-secondary"> Anupuram</span>
                                     </li>
-                                  </ul>
+                                </ul>
                             </div>
                             <div class="vr"></div>
                             <div class="col-md-3">
-                                <form [formGroup]="passwordChangeForm" autocomplete="off">
+                                <form [formGroup]="passwordChangeForm"
+                                    autocomplete="off">
                                     <hr>
-                                        <div class="smart-input"> 
-                                            <label>Change Password<span smartMandatory></span></label>
-                                            <input placeholder="Change Password" formControlName="userName" [smartErrorMessage]="passwordChangeControls.userName"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="text" />
-                                        </div>
-                                        <div class="smart-input"> 
-                                            <label>Confirm password<span smartMandatory></span></label>
-                                            <input placeholder="Confirm password" formControlName="password" maxlength="15" [smartErrorMessage]="passwordChangeControls.password"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="password" />
-                                        </div>
-                                        <div class="text-center pt-4">
-                                            <button type="submit" class="smart-btn" (click)="onChangePassword()">Change Password</button>
-                                        </div>
+                                    <div class="smart-input">
+                                        <label>Change Password<span smartMandatory></span></label>
+                                        <input placeholder="Change Password"
+                                            formControlName="changePassword"
+                                            [smartErrorMessage]="passwordChangeControls.changePassword"
+                                            [smartSubmit]="isSubmitted"
+                                            smartInputBorder class="input-value"
+                                            type="text" />
+                                    </div>
+                                    <div class="smart-input">
+                                        <label>Confirm password<span
+                                                smartMandatory></span></label>
+                                        <input placeholder="Confirm password"
+                                            formControlName="confirmPassword"
+                                            maxlength="15"
+                                            [smartErrorMessage]="passwordChangeControls.confirmPassword"
+                                            [smartSubmit]="isSubmitted"
+                                            smartInputBorder class="input-value"
+                                            type="password" />
+                                    </div>
+                                    <div class="text-center pt-4">
+                                        <button type="submit" class="smart-btn"
+                                            (click)="onChangePassword()">Change
+                                            Password</button>
+                                    </div>
                                 </form>
                             </div>
-                    </div>                    
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
