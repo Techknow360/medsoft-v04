@@ -3,7 +3,7 @@ import { DOCUMENT } from '@angular/common';
 
 interface ITab {
   title: string;
-  content: string;
+  content?: string;
   removable: boolean;
   disabled: boolean;
   active?: boolean;
@@ -18,7 +18,7 @@ interface ITab {
 })
 export class BillingComponent implements OnInit {
   tabs: ITab[] = [
-    { title: 'Dynamic Title 1', content: 'Dynamic content 1', removable: false, disabled: false,active: true,},
+    { title: 'Bill 1',removable: false, disabled: false,active: true,},
   ];
 
   constructor(){}
@@ -28,11 +28,10 @@ export class BillingComponent implements OnInit {
   }
 
   addNewTab(): void {
-    if(this.tabs.length < 6){
+    if(this.tabs.length < 10){
       const newTabIndex = this.tabs.length + 1;
       this.tabs.push({
-        title: `Dynamic Title ${newTabIndex}`,
-        content: `Dynamic content ${newTabIndex}`,
+        title: `Bill  ${newTabIndex}`,
         disabled: false,
         removable: true,
         active :true
