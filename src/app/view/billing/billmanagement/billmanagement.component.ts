@@ -56,7 +56,6 @@ export class BillmanagementComponent {
 
   onbodyActionClick(type){
     if(type.Action == 'VIEW' || type.Action == 'EDIT'){
-      debugger
        this.billItemsViewMode = type.Action
        this.modalService.open(this.billDetails,{size : 'xl'})
     }

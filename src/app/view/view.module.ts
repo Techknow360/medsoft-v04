@@ -51,6 +51,7 @@ import { BillitemsformComponent } from './billing/billitemsform/billitemsform.co
 import { StaffpurchaseComponent } from './staffpurchase/staffpurchase.component';
 import { StaffpurchasehistoryComponent } from './staffpurchase/staffpurchasehistory/staffpurchasehistory.component';
 import { BillmanagementComponent } from './billing/billmanagement/billmanagement.component';
+import { AlertComponent } from '../shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { BillmanagementComponent } from './billing/billmanagement/billmanagement
     StaffpurchaseComponent,
     StaffpurchasehistoryComponent,
     BillmanagementComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,

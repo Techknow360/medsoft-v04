@@ -19,6 +19,8 @@
 		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
     </div>
     <div class="modal-body">
-        <app-vendorform></app-vendorform>
+        <app-vendorform [mode]="formMode"></app-vendorform>
     </div>
 </ng-template>
+
+<app-alert *ngIf="openAlert" (alertActions)="deleteData($event)"></app-alert>

@@ -1,0 +1,12 @@
+<ng-template #alertModel let-c="close" let-d="dismiss"> 
+<div class="modal-header">
+    <h5 class="modal-title">{{header || ''}}</h5>
+</div>
+<div class="modal-body">
+    <p> {{questions || ''}}</p>
+    <div class="d-flex justify-content-end">
+        <button class=" btn btn-outline-success m-2" (click)="onConfirmation('YES')" >Yes</button>
+        <button class="btn btn-outline-danger m-2" (click)="onConfirmation('NO')" >No</button>
+    </div>
+</div>
+</ng-template>

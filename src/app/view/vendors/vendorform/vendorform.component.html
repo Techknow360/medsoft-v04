@@ -26,6 +26,7 @@
         </div>
     </div>
     <div class="text-center pt-2">
-        <button type="submit" class="smart-btn" (click)="saveVendorsFormDetails()">save</button>
+        <button *ngIf="isEditable" type="submit" class="smart-btn" (click)="saveVendorsFormDetails()">save</button>
+        <button *ngIf="!isEditable"  type="submit" class="smart-btn" (click)="modalServices.dismissAll()">Close</button>
     </div>
   </form>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-vendorform',
@@ -7,15 +8,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./vendorform.component.css']
 })
 export class VendorformComponent implements OnInit {
+  @Input('mode') mode : string = 'EDIT'
   vendorsForm! :  FormGroup
   isSubmitted :  boolean = false;
   isEditable : boolean = false;
-  constructor(private formBuilder  :  FormBuilder){
+  constructor(
+    private formBuilder  :  FormBuilder,
+    public modalServices :  NgbModal
+    ){
 
   }
 
   ngOnInit(): void {
       this.createVendosForm()
+      this.updateFormMode()
   }
 
   createVendosForm(){
@@ -35,6 +41,16 @@ export class VendorformComponent implements OnInit {
 
   saveVendorsFormDetails(){
     this.isSubmitted = true
+  }
+
+  updateFormMode(){
+    if(this.mode == 'VIEW'){
+      this.isEditable =  false
+      this.vendorsForm.disable()
+    }else{
+      this.isEditable =  true
+      this.vendorsForm.enable()
+    }
   }
 
   
