@@ -23,6 +23,10 @@ import { ViewComponent } from './view/view.component';
 const routes: Routes = [
   {
     path : '',
+    component : LoginComponent
+  },
+  {
+    path : '',
     component : ViewComponent,
     children : [
       {
