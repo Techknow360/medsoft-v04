@@ -5,9 +5,24 @@
             <select name="" id=""  class="input-value" formControlName="paymentType" [smartErrorMessage]="paymentFormControl.paymentType" [smartSubmit]="isSubmitted" smartInputBorder>
                 <option disabled selected value="null">SELECT</option>
                 <option value="MISCELLANEOUE">MISCELLANEOUE</option>
+                <option value="EMPLOYEE">EMPLOYEE SALARY</option>
                 <option value="VENDORS">VENDOR PAYMENT</option>
             </select>
         </div>
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymentType.value =='EMPLOYEE'"> 
+            <label>Employee Name<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="employeeName" [smartErrorMessage]="paymentFormControl.employeeName" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="01">PARTBIBAN</option>
+                <option value="02">SIREESHA</option>
+            </select>
+        </div>
+
+        <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymentType.value =='EMPLOYEE'">
+            <label>Salary Month<span smartMandatory></span></label>
+            <input placeholder="Salary Month" formControlName="salaryMonth" [smartErrorMessage]="paymentFormControl.salaryMonth" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="month">
+        </div>
+
         <div class="col-md-4 smart-input" *ngIf="paymentFormControl.paymentType.value =='VENDORS'"> 
             <label>Firm/Company Name<span smartMandatory></span></label>
             <select name="" id=""  class="input-value" formControlName="vendors_ID" [smartErrorMessage]="paymentFormControl.vendors_ID" [smartSubmit]="isSubmitted" smartInputBorder>

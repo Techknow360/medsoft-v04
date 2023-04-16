@@ -23,6 +23,8 @@ export class PaymentformComponent {
   createVendosForm(){
     this.paymentForm =  this.formBuilder.group({
       paymentType : ['MISCELLANEOUE',[Validators.required]],
+      employeeName : [null],
+      salaryMonth : [null],
       vendors_ID : [null],
       billNo : [null],
       total_amount : [null],
@@ -50,7 +52,12 @@ export class PaymentformComponent {
     this.paymentForm.get('paymentType')?.valueChanges.subscribe((data)=>{
       if(data == 'VENDORS'){
         this.dynamicValidation(this.paymentFormControl,['vendors_ID','billNo','total_amount','cur_balance'],true)
+        this.dynamicValidation(this.paymentFormControl,['employeeName','salaryMonth'],false)
+      }else if(data == 'EMPLOYEE'){
+        this.dynamicValidation(this.paymentFormControl,['employeeName','salaryMonth'],true)
+        this.dynamicValidation(this.paymentFormControl,['vendors_ID','billNo','total_amount','cur_balance'],false)
       }else if(data == 'MISCELLANEOUE'){
+        this.dynamicValidation(this.paymentFormControl,['employeeName','salaryMonth'],false)
         this.dynamicValidation(this.paymentFormControl,['vendors_ID','billNo','total_amount','cur_balance'],false)
       }
     });
