@@ -14,10 +14,13 @@
                 <select name="" id=""  class="input-value" formControlName="reportType" [smartErrorMessage]="reportFormControls.reportType" [smartMessage]="false"  [smartSubmit]="isSubmitted" smartInputBorder>
                     <option disabled selected value="null">SELECT</option>
                     <option value="GSTREPORT">GST REPORT</option>
+                    <option value="REVENUE">REVENUE</option>
+                    <option value="EXPENSES">EXPENSES</option>
                     <option value="PRODUCTREPORT">PRODUCT REPORT</option>
                     <option value="SALESREPORT">SALES REPORT</option>
                     <option value="SCHEDULEREPORT">SCHEDULE EPORT</option>
                     <option value="EXPIRYPRODUCT">EXPITY PRODUCT REPORT</option>
+
                 </select>
             </div>
             <div class="col-md-3 smart-input" *ngIf="reportFormControls.reportType.value != 'SCHEDULEREPORT' ">

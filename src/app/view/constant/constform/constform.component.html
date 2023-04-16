@@ -1,0 +1,23 @@
+<form [formGroup]="vendorsForm" autocomplete="off">
+    <div class="row form-group">
+        <div class="col-md-4 smart-input"> 
+            <label>Type<span smartMandatory></span></label>
+            <input placeholder="Type" formControlName="type" [smartErrorMessage]="vendorsFormControl.type"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="text" />
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Constant ID<span smartMandatory></span></label>
+            <input placeholder="Constant ID" formControlName="constID" [smartErrorMessage]="vendorsFormControl.constID" [smartSubmit]="isSubmitted" smartInputBorder  class="input-value" type="text">
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Constant Value<span smartMandatory></span></label>
+            <input placeholder="Constant Value" formControlName="contValue" [smartErrorMessage]="vendorsFormControl.contValue"  smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text">
+        </div>
+        <div class="col-md-12 smart-input">
+            <label>Description<span smartMandatory></span></label>
+            <textarea placeholder="Description" formControlName="desc" rows="6" [smartErrorMessage]="vendorsFormControl.desc" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text"></textarea>
+        </div>
+    </div>
+    <div class="text-center pt-2">
+        <button type="submit" class="smart-btn" (click)="saveConstantFormDetails()">save</button>
+    </div>
+  </form>

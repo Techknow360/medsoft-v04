@@ -43,6 +43,8 @@ import { WebcamModule } from 'ngx-webcam';
 import { UploadComponent } from '../shared/upload/upload.component';
 import { CameraComponent } from '../shared/upload/camera/camera.component';
 import { ImageCropperComponent } from '../shared/upload/image-cropper/image-cropper.component';
+import { ConstantComponent } from './constant/constant.component';
+import { ConstformComponent } from './constant/constform/constform.component';
 
 
 @NgModule({
@@ -80,6 +82,8 @@ import { ImageCropperComponent } from '../shared/upload/image-cropper/image-crop
     SmartinputborderDirective,
     SmarttableshortDirective,
     SmartautoheightDirective,
+    ConstantComponent,
+    ConstformComponent,
   ],
   imports: [
     CommonModule,
