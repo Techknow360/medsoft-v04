@@ -50,6 +50,7 @@ import { ProductreturnformComponent } from './products/productreturn/productretu
 import { BillitemsformComponent } from './billing/billitemsform/billitemsform.component';
 import { StaffpurchaseComponent } from './staffpurchase/staffpurchase.component';
 import { StaffpurchasehistoryComponent } from './staffpurchase/staffpurchasehistory/staffpurchasehistory.component';
+import { BillmanagementComponent } from './billing/billmanagement/billmanagement.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { StaffpurchasehistoryComponent } from './staffpurchase/staffpurchasehist
     BillitemsformComponent,
     StaffpurchaseComponent,
     StaffpurchasehistoryComponent,
+    BillmanagementComponent,
   ],
   imports: [
     CommonModule,

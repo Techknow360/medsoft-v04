@@ -21,8 +21,8 @@ export class BillitemsformComponent {
   billitemform !: FormGroup
   isSubmitted :  boolean = false
   isbillprint : boolean = false
-  elem: any;
   isFullScreen : boolean = false
+  isEditable : boolean = false
 
   constructor( 
     @Inject(DOCUMENT) private document: any,
@@ -37,8 +37,8 @@ export class BillitemsformComponent {
     }
 
   ngOnInit(): void {
-    this.elem = document.documentElement;
     this.initiateForm();
+    this.updateFormMode()
   }
   @HostListener('window:keypress', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
@@ -116,5 +116,15 @@ export class BillitemsformComponent {
 
   ngAfterViewChecked() {        
     this.scrollToBottom();        
+  }
+
+  updateFormMode(){
+    if(this.mode == 'VIEW'){
+      this.isEditable =  false
+      this.billitemform.disable()
+    }else{
+      this.isEditable =  true
+      this.billitemform.enable()
+    }
   }
 }

@@ -4,6 +4,7 @@ import { NotfoundComponent } from './shared/base/notfound/notfound.component';
 import { UndermaintenanceComponent } from './shared/base/undermaintenance/undermaintenance.component';
 import { LoginComponent } from './shared/login/login.component';
 import { BillingComponent } from './view/billing/billing.component';
+import { BillmanagementComponent } from './view/billing/billmanagement/billmanagement.component';
 import { ConstantComponent } from './view/constant/constant.component';
 import { CustomersComponent } from './view/customers/customers.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
@@ -78,6 +79,10 @@ const routes: Routes = [
       {
         path : 'staffpurchase',
         component :StaffpurchaseComponent
+      },
+      {
+        path :'billmanagement',
+        component : BillmanagementComponent
       }
     ]
   },
