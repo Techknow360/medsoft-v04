@@ -9,6 +9,7 @@ import { CustomersComponent } from './view/customers/customers.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { PaymentsComponent } from './view/payments/payments.component';
 import { ProductitemsComponent } from './view/products/productitems/productitems.component';
+import { ProductreturnComponent } from './view/products/productreturn/productreturn.component';
 import { ProductsComponent } from './view/products/products.component';
 import { ProfileComponent } from './view/profile/profile.component';
 import { ReportsComponent } from './view/reports/reports.component';
@@ -69,6 +70,9 @@ const routes: Routes = [
       {
         path : 'constant',
         component :  ConstantComponent
+      },{
+        path : 'productretun',
+        component :ProductreturnComponent
       }
     ]
   },

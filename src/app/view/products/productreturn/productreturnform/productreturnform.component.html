@@ -1,0 +1,52 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-beat" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+<form [formGroup]="productReturnForm" autocomplete="off">
+    <div class="row form-group">
+        <div class="col-md-4 smart-input">
+            <label>Bill Number<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="billno" [smartErrorMessage]="productReturnFormControl.billno" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="BILL01">H</option>
+                <option value="BILL02">X</option>
+            </select>
+        </div>
+
+        <div class="col-md-4 smart-input">
+            <label>Products<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="products" [smartErrorMessage]="productReturnFormControl.products" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="PARACITAMAL">PARACITAMAL</option>
+                <option value="DOLO650">DOLO650</option>
+            </select>
+        </div>
+
+        <div class="col-md-4 smart-input">
+            <label>Product Items<span smartMandatory></span></label>
+            <select name="" id=""  class="input-value" formControlName="productitems" [smartErrorMessage]="productReturnFormControl.productitems" [smartSubmit]="isSubmitted" smartInputBorder>
+                <option disabled selected value="null">SELECT</option>
+                <option value="H">H</option>
+                <option value="X">X</option>
+            </select>
+        </div>
+        
+        <div class="col-md-4 smart-input"> 
+            <label>Return Quantity<span smartMandatory></span></label>
+            <input placeholder="Return Quantity" formControlName="returnquant" [smartErrorMessage]="productReturnFormControl.returnquant"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="text" />
+        </div>
+        <div class="col-md-4 smart-input">
+            <label>Return Date<span smartMandatory></span></label>
+            <input  class="input-value" id="retundate" formControlName="retundate" placeholder="DD-MM-YYYY" name="d1"  ngbDatepicker #d1="ngbDatepicker">
+            <div class="input-group-append">
+              <span class="calendar" (click)="d1.toggle()" type="button">📅</span>
+            </div>
+        </div>
+        
+        <div class="col-md-12 smart-input">
+            <label>Description<span smartMandatory></span></label>
+            <textarea placeholder="Description" formControlName="desc" rows="6" [smartErrorMessage]="productReturnFormControl.desc" smartInputBorder   [smartSubmit]="isSubmitted" class="input-value" type="text"></textarea>
+        </div>
+    </div>
+    <div class="text-center pt-2">
+        <button type="submit" class="smart-btn" (click)="saveproductReturnFormDetails()">save</button>
+    </div>
+  </form>
+  

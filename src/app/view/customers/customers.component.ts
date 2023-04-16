@@ -38,7 +38,6 @@ createVendorsTable(){
       {"type":"btngroup","title":"Actions","width":"20","btnconfig":[
         {"type":"icon","action":"VIEW","icon":"fa fa-eye","title":"View","color":"green"},
         {"type":"icon","action":"EDIT","icon":"fa fa-edit","title":"Edit","color":"blue"},
-        {"type":"icon","action":"PASSWORD RESET","icon":"fa fa-lock","title":"Work Flow History","color":"gray"},
         {"type":"icon","action":"CANCEL","icon":"fa fa-trash","title":"Cancel Application","color":"red"},
       ]}
     ],

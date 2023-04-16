@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 })
 export class ProductsComponent {
   @ViewChild('productsForm') productsForm : any
+  @ViewChild('retunProducts') retunProducts :  any
   resetTable: Subject<boolean> = new Subject<boolean>();
   tableData :  any =[]
   tableConfig :any
@@ -72,5 +73,9 @@ export class ProductsComponent {
 
   closeModal(){
     this.modalService.dismissAll()
+  }
+
+  openProductReturn(){
+    this.route.navigate(['/productretun'])
   }
 }

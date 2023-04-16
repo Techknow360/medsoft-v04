@@ -45,7 +45,8 @@ import { CameraComponent } from '../shared/upload/camera/camera.component';
 import { ImageCropperComponent } from '../shared/upload/image-cropper/image-cropper.component';
 import { ConstantComponent } from './constant/constant.component';
 import { ConstformComponent } from './constant/constform/constform.component';
-
+import { ProductreturnComponent } from './products/productreturn/productreturn.component';
+import { ProductreturnformComponent } from './products/productreturn/productreturnform/productreturnform.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,8 @@ import { ConstformComponent } from './constant/constform/constform.component';
     SmartautoheightDirective,
     ConstantComponent,
     ConstformComponent,
+    ProductreturnComponent,
+    ProductreturnformComponent,
   ],
   imports: [
     CommonModule,
