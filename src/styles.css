@@ -13,6 +13,10 @@
     z-index: 1;
 }
 
+.login-card{
+    border-left: 50px solid #042331;
+}
+
 .top_navbar .logo {
     width: 250px;
     font-size: 25px;
