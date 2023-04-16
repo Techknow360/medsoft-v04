@@ -1,0 +1,31 @@
+<div class="container">
+    <form [formGroup]="staffPurchaseForm">
+        <div class="row form-group">
+            <div class="col-md-4 smart-input"> 
+                <label>Staff Name<span smartMandatory></span></label>
+                <input placeholder="Staff Name" formControlName="staffName" [smartErrorMessage]="staffPurchaseFormControl.staffName"  [smartSubmit]="isSubmitted" smartInputBorder  class="input-value"  type="text" />
+            </div>
+            <div class="col-md-2 smart-input">
+                <label>Puchase Date<span smartMandatory></span></label>
+                <input  class="input-value" id="formdate" formControlName="purDate" placeholder="DD-MM-YYYY" name="d1"  ngbDatepicker #d1="ngbDatepicker" [smartErrorMessage]="staffPurchaseFormControl.purDate" smartInputBorder   [smartSubmit]="isSubmitted">
+                <div class="input-group-append">
+                  <span class="calendar" (click)="d1.toggle()" type="button">📅</span>
+                </div>
+            </div>
+            <div class="col-md-5 smart-input">
+                <label>Remarks<span smartMandatory></span></label>
+                <textarea placeholder="REMARKS" formControlName="remarks" [smartErrorMessage]="staffPurchaseFormControl.remarks" smartInputBorder [smartLabel]="'Remarks'"  [smartSubmit]="isSubmitted" class="input-value" type="text"></textarea>
+            </div>
+            <div class="col-md-1 smart-input">
+              <button class="btn btn-outline-primary btn-sm mt-4" (click)="viewPurchaseHistory()"><i class="fa fa-eye"></i></button>
+            </div>
+        </div>
+    </form>
+    <app-billitemsform (retunBillItemDetails)="getBillItemDetails($event)" [isScrollRequired]="true" [submitTitle]="'Purchase'"></app-billitemsform>
+</div>
+
+<ng-template #staffPurchaseHistory let-c="close" let-d="dismiss"> 
+    <div>
+        <app-staffpurchasehistory></app-staffpurchasehistory>
+    </div>
+</ng-template>

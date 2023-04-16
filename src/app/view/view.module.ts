@@ -47,6 +47,9 @@ import { ConstantComponent } from './constant/constant.component';
 import { ConstformComponent } from './constant/constform/constform.component';
 import { ProductreturnComponent } from './products/productreturn/productreturn.component';
 import { ProductreturnformComponent } from './products/productreturn/productreturnform/productreturnform.component';
+import { BillitemsformComponent } from './billing/billitemsform/billitemsform.component';
+import { StaffpurchaseComponent } from './staffpurchase/staffpurchase.component';
+import { StaffpurchasehistoryComponent } from './staffpurchase/staffpurchasehistory/staffpurchasehistory.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +90,9 @@ import { ProductreturnformComponent } from './products/productreturn/productretu
     ConstformComponent,
     ProductreturnComponent,
     ProductreturnformComponent,
+    BillitemsformComponent,
+    StaffpurchaseComponent,
+    StaffpurchasehistoryComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,9 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel" class="ft-popup-heading text-center brand-text-color">Staff Purchase History
+    </h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalServices.dismissAll()"></button>
+</div>
+<div class="modal-body">
+    <app-smart-table [onChangeTrigger]="resetTable"  [OnChange]="true" [data]="tableData" (bodyAction)="onbodyActionClick($event)" (headerAction)="headerActionClick($event)"
+    [tconfig]="tableConfig"></app-smart-table>
+</div>

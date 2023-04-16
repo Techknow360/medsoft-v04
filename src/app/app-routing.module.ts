@@ -14,6 +14,7 @@ import { ProductsComponent } from './view/products/products.component';
 import { ProfileComponent } from './view/profile/profile.component';
 import { ReportsComponent } from './view/reports/reports.component';
 import { SettingsComponent } from './view/settings/settings.component';
+import { StaffpurchaseComponent } from './view/staffpurchase/staffpurchase.component';
 import { UsersComponent } from './view/users/users.component';
 import { VendorsComponent } from './view/vendors/vendors.component';
 import { ViewComponent } from './view/view.component';
@@ -73,6 +74,10 @@ const routes: Routes = [
       },{
         path : 'productretun',
         component :ProductreturnComponent
+      },
+      {
+        path : 'staffpurchase',
+        component :StaffpurchaseComponent
       }
     ]
   },

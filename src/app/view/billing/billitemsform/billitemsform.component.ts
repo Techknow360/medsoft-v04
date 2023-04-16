@@ -1,0 +1,120 @@
+import { Component, HostListener, OnInit, Inject, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { NotifyService } from 'src/app/api-services/common/notify.service';
+import { SpinnerService } from 'src/app/api-services/common/spinner.service';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+
+@Component({
+  selector: 'app-billitemsform',
+  templateUrl: './billitemsform.component.html',
+  styleUrls: ['./billitemsform.component.css']
+})
+export class BillitemsformComponent {
+  @Output() retunBillItemDetails : EventEmitter<any> = new EventEmitter();
+  @ViewChild('billScroll') private billScrollDown: ElementRef;
+  @Input('billItemsData')  billItemsData : any 
+  @Input('submitTitle')  submitTitle : any  =  'Save'
+  @Input('mode')  mode : any
+  @Input('isScrollRequired') isScrollRequired :  boolean = true
+  signleUser :  boolean = true
+  billitemform !: FormGroup
+  isSubmitted :  boolean = false
+  isbillprint : boolean = false
+  elem: any;
+  isFullScreen : boolean = false
+
+  constructor( 
+    @Inject(DOCUMENT) private document: any,
+    private formBuilder: FormBuilder,
+    private notify : NotifyService,
+    private spinner :  SpinnerService,
+    private modalServices :  NgbModal,
+    config: NgbModalConfig,
+    ) { 
+      config.backdrop = 'static';
+      config.keyboard = false;
+    }
+
+  ngOnInit(): void {
+    this.elem = document.documentElement;
+    this.initiateForm();
+  }
+  @HostListener('window:keypress', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    if(event.key == 'Enter' || event.key == '+'){
+      this.createbillitemforms();
+    }
+    if(event.key == '-'){
+      this.deletebillitemforms(this.getbillitemsTableArray.length - 1);
+    }
+  }
+
+
+
+  initiateForm(){
+    this.billitemform =  this.formBuilder.group({
+       billitems : this.formBuilder.array([])
+    })
+    if(this.getbillitemsTableArray.length == 0){
+      this.createbillitemforms()
+    }
+  }
+
+  get getbillitemformControl() {
+    return this.billitemform.controls;
+  }
+
+  get getbillitemsTableArray() {
+    return this.getbillitemformControl['billitems'] as FormArray;
+  }
+
+  get getbillitemsTableArrayControls(){
+    return (this.billitemform.get('billitems') as FormArray).controls
+  }
+
+  createbillitemforms(){
+    const billitemsform = this.formBuilder.group({
+        productname : [null,Validators.required],
+        expirydate : [null,Validators.required],
+        quantity : [null,Validators.required],
+        unitprice : [null,Validators.required],
+        discount : [null],
+        tax : [null],
+        netprice : [null,Validators.required]
+    })
+    this.getbillitemsTableArray.push(billitemsform)
+    this.scrollToBottom();
+  }
+
+  deletebillitemforms(index : number){
+    if(this.getbillitemsTableArray.length > 1){
+      this.getbillitemsTableArray.removeAt(index)
+    }
+  }
+
+  saveBillDetails(){
+    this.isbillprint = true
+    if(this.billitemform.valid){
+      let data  =  this.billitemform.getRawValue()
+      this.retunBillItemDetails.emit({data : data})
+    }else{
+      this.notify.error("Please Fill The Required Fields")
+    }
+  }
+
+  resetDetails(){
+    this.isbillprint = false;
+    this.ngOnInit();
+  }
+
+  scrollToBottom(): void {
+    if(this.billScrollDown){
+      this.billScrollDown.nativeElement.scrollTop = this.billScrollDown.nativeElement.scrollHeight;         
+    }
+  }
+
+  ngAfterViewChecked() {        
+    this.scrollToBottom();        
+  }
+}
