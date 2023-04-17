@@ -9,6 +9,7 @@ export class SmartDashboardCardsComponent implements OnInit {
   @Input('title') title : any
   @Input('data') data : any
   @Input('icon') icon : any
+  @Input('color') color : any
 
   ngOnInit(): void {
     
