@@ -40,6 +40,12 @@ export class PaymentsComponent {
           {"type":"icon","action":"EDIT","icon":"fa fa-edit","title":"Edit","color":"blue"},
           {"type":"icon","action":"HISTORY","icon":"fa fa-history","title":"Work Flow History","color":"gray"},
           {"type":"icon","action":"CANCEL","icon":"fa fa-trash","title":"Cancel Application","color":"red"},
+          {"type":"iconSelect","action":"SELEC","icon":"fa fa-caret-down","title":"Cancel Application","color":"red","options":
+           [
+            {"icon":"fa fa-add","title":"Commends","action":"COMMENDS"},
+            {"icon":"fa fa-home","title":"ViewHistory","action":"HISTORY"}
+           ]
+         },
         ]}
       ],
     }
@@ -51,7 +57,7 @@ export class PaymentsComponent {
   }
 
   onbodyActionClick(type){
-
+    console.log(type)
   }
 
   headerActionClick(type){

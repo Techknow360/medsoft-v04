@@ -68,6 +68,14 @@
                                 <span *ngIf="!btngrp.cond && !btngrp.showcond" class="p-2">
                                     <i *ngIf="btngrp.type == 'icon'" [ngStyle]="{'color':btngrp.color}" class="{{btngrp.icon}}" title="{{btngrp.title}}" (click)="onBodyActionClick(btngrp.action,tbody[btngrp.returnData],i)"></i>
                                 </span>
+                                <span *ngIf="!btngrp.cond && !btngrp.showcond && btngrp.type == 'iconSelect'" class="p-2">
+                                    <div ngbDropdown class="d-inline-block">
+                                    <i id="dropdownBasic1" ngbDropdownToggle class="{{btngrp.icon}}"></i>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <button ngbDropdownItem *ngFor="let dpoptions of btngrp?.options " (click)="onBodyActionClick(dpoptions.action,tbody[dpoptions.returnData],i)"><i class="{{dpoptions.icon}} mr-1"></i>{{dpoptions.title}}</button>
+                                    </div>
+                                </div>
+                                </span>
                                 <span *ngIf="btngrp.cond && btngrp.cond.value.includes(tbody[btngrp.cond.comp])">
                                     <i *ngIf="btngrp.type == 'icon'"  [ngStyle]="{'color':btngrp.color}" class="{{btngrp.icon}}" title="{{btngrp.title}}" (click)="onBodyActionClick(btngrp.action,tbody[btngrp.returnData],i)"></i>
                                 </span>

@@ -20,7 +20,7 @@ export class UsersformComponent {
 ngOnInit(): void {
     this.createUserForm()
     this.smartCustomConfig ={
-      lastName : [
+      fatherName : [
         {error : 'required','smartmessage' : 'Custom Message Required '},
         {error : 'minlength','smartmessage' : 'Custom Message Minimum Lenth '}
       ]

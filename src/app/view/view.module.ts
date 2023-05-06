@@ -16,7 +16,7 @@ import { SmartDashboardCardsComponent } from '../shared/core/components/smart-da
 import { VendorsComponent } from './vendors/vendors.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SmarttableshortDirective } from '../shared/core/directives/smarttableshort.directive';
-import { NgbDateParserFormatter, NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateParserFormatter, NgbDropdownModule, NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VendorformComponent } from './vendors/vendorform/vendorform.component';
 import { UsersformComponent } from './users/usersform/usersform.component';
 import { CustomersComponent } from './customers/customers.component';
@@ -108,6 +108,7 @@ import { AlertComponent } from '../shared/alert/alert.component';
     NgxSpinnerModule,
     ImageCropperModule,
     WebcamModule,
+    NgbDropdownModule,
     ToastrModule.forRoot(),
     TabsModule.forRoot()
     
