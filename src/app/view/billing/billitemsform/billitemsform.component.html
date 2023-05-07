@@ -18,7 +18,7 @@
             <tr *ngFor="let bills of getbillitemsTableArray.controls; let i = index" [formGroupName]="i">
                 <td style="width:2%">{{i + 1}}</td>
                 <td>
-                    <input type="text" class="input-value" formControlName="productname" (blur)="onProductNameLeave($event,i)"  (keyup)="onProductName($event,i)"  [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].productname"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
+                    <input type="text" class="input-value" formControlName="productname"  (keyup)="onProductName($event,i)"  [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].productname"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
                     <div *ngIf="bills.get('showItems')?.value && showProductItems" class="searchbox">
                           <div class="d-flex">
                             <table class="table">

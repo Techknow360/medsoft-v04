@@ -43,12 +43,12 @@ export class BillitemsformComponent {
   @HostListener('window:keypress', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     if(event.key == 'Enter' || event.key == '+'){
-      this.showProductItems =  false
       this.createbillitemforms();
+      this.forceItemShowDisabled()
     }
     if(event.key == '-'){
-      this.showProductItems =  false
       this.deletebillitemforms(this.getbillitemsTableArray.length - 1);
+      this.forceItemShowDisabled()
     }
   }
 
@@ -132,21 +132,21 @@ export class BillitemsformComponent {
   onProductName(data,index){
     let value  = data.target.value
     if(value.length > 0){
-      this.updateItemShow(index,true)
+      this.updateItemShow(true,index)
     }else{
       this.showProductItems =  false
-      this.updateItemShow(index,false)
+      this.updateItemShow(false,index)
     }
   }
 
-  updateItemShow(index,cond){
+  updateItemShow(cond,index?){
     let i  = 0
     for(let items  of this.getbillitemsTableArray.getRawValue()){
       if(i == index && cond){
         this.showProductItems =  true
         this.getbillitemsTableArrayControls[i]['controls']['showItems'].patchValue(true)
         this.getbillitemsTableArrayControls[i]['controls']['showItems'].updateValueAndValidity()
-      }else{
+      }else if(i != index || !cond){
         this.getbillitemsTableArrayControls[i]['controls']['showItems'].patchValue(false)
         this.getbillitemsTableArrayControls[i]['controls']['showItems'].updateValueAndValidity()
       }
@@ -154,8 +154,18 @@ export class BillitemsformComponent {
     }
   }
 
-  onProductNameLeave(data,index){
-    let value  = data.target.value
-    this.updateItemShow(index,false)
+  forceItemShowDisabled(){
+    let i = 0
+    for(let items  of this.getbillitemsTableArray.getRawValue()){
+        this.showProductItems =  false
+        this.getbillitemsTableArrayControls[i]['controls']['showItems'].patchValue(false)
+        this.getbillitemsTableArrayControls[i]['controls']['showItems'].updateValueAndValidity()
+        i++
+    }
   }
+
+  // onProductNameLeave(data,index){
+  //   let value  = data.target.value
+  //   this.updateItemShow(false,)
+  // }
 }
