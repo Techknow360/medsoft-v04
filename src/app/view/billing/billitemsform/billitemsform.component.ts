@@ -47,7 +47,8 @@ export class BillitemsformComponent {
 
   ngOnInit(): void {
     this.initiateForm();
-    this.updateFormMode()
+    this.updateFormMode();
+    this.selectTableRow()
   }
   @HostListener('window:keypress', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
@@ -144,6 +145,7 @@ export class BillitemsformComponent {
     if(value.length > 0){
       this.updateItemShow(true,index)
     }else{
+      this.productItems = []
       this.showProductItems =  false
       this.updateItemShow(false,index)
     }
@@ -151,13 +153,11 @@ export class BillitemsformComponent {
 
   filterProducts(value){
     this.productItems  = this.productItemData.filter((data)=>this.isMatch(data,value))
-    console.log(this.productItems)
-
   }
 
   isMatch(item : any,value) {
     if (item instanceof Object) {
-      return Object.keys(item).some((k) => this.isMatch(item[k],value));
+      return Object.keys(item).some((k) => this.isMatch(item['prodctName'],value));
     } else {
       var searchItem  = this.stringSanitize(item);
       var filterdata  = this.stringSanitize(value);
@@ -191,6 +191,24 @@ export class BillitemsformComponent {
         this.getbillitemsTableArrayControls[i]['controls']['showItems'].patchValue(false)
         this.getbillitemsTableArrayControls[i]['controls']['showItems'].updateValueAndValidity()
         i++
+    }
+  }
+
+  selectTableRow(){
+    var table = document.getElementById('billItemsTable') as HTMLTableElement
+   var  event = ['keypress','keyup'];
+    event.forEach(event =>
+      document.addEventListener(event,($event)=>{
+        this.onArrowKey($event)
+      })
+    )
+  }
+
+  onArrowKey(event){
+    if(event.key == 'ArrowUp'){
+        console.log("UP")
+    }else if(event.key == 'ArrowDown'){
+        console.log("DOWN") 
     }
   }
 

@@ -28,7 +28,7 @@ ngOnInit(): void {
 createVendorsTable(){
   this.tableConfig = {
     "tableconfig" : {"name":"usersDetails","title":"Users Details","download": true,"search":true,"showentries":true,"currentpage": false,
-    "refresh":true,"showingentries":true,"sorting": true,"pagination":true,"add":false,"colsearch":false,"excelcond":true},
+    "refresh":true,"showingentries":true,"sorting": true,"pagination":true,"add":false,"colsearch":true,"excelcond":true},
     "config" : [
       {"type":"db","title":"Customer ID","tbody":"custid","width":"10","filter" : true},
       {"type":"db","title":"Name","tbody":"cname","width":"10","filter" : true},
@@ -54,7 +54,7 @@ onbodyActionClick(type){
 }
 
 headerActionClick(type){
-
+  console.log(type)
 }
 
 createNewVendors(){

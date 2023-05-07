@@ -1,100 +1,118 @@
 <form [formGroup]="billitemform">
-<div [smartAutoHeight]="isScrollRequired" #billScroll > 
-    <table class="table text-secondary "  >
-        <thead class="bg-light sticky-top">
-            <tr>
-                <th></th>
-                <th>Product Name</th>
-                <th>Exp date</th>
-                <th>Quantity</th>
-                <th>Unit Price</th>
-                <th>Discount</th>
-                <th>Tax</th>
-                <th>Net Value</th>
-                <th *ngIf="isEditable">Actions</th>
-            </tr>
-        </thead>
-        <tbody formArrayName="billitems" >
-            <tr *ngFor="let bills of getbillitemsTableArray.controls; let i = index" [formGroupName]="i">
-                <td style="width:2%">{{i + 1}}</td>
-                <td>
-                    <input type="text" class="input-value" formControlName="productname"  (keyup)="onProductName($event,i)"  [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].productname"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
-                    <div *ngIf="bills.get('showItems')?.value && showProductItems" class="searchbox">
-                          <div class="d-flex">
-                            <table class="table table-hover table-sm text-secondary">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Batch Code</th>
-                                        <th>Expiry Date</th>
-                                        <th>Discount</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let item of productItems">
-                                        <td>{{item?.prodctName}}</td>
-                                        <td>{{item?.batchCode}}</td>
-                                        <td>{{item?.expDate}}</td>
-                                        <td>{{item?.discount}}</td>
-                                        <td>{{item?.qauntity}}</td>
-                                        <td>{{item?.price}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                          </div>
-                    </div>
-                </td>
-                <td style="width:10%">
-                    <input type="text" class="input-value" formControlName="expirydate" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].expirydate"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
-                </td>
-                <td style="width:10%">
-                    <input type="text" class="input-value" formControlName="quantity" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].quantity"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
-                </td>
-                <td style="width:10%">
-                    <input type="text" class="input-value" formControlName="unitprice" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].unitprice"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder >
-                </td>
-                <td style="width:5%">
-                    <input type="text" class="input-value" formControlName="discount" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].discount"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
-                </td>
-                <td style="width:5%">
-                    <input type="text" class="input-value" formControlName="tax" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].tax"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
-                </td>
-                <td style="width:10%">
-                    <input type="text" class="input-value" formControlName="netprice" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].netprice"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
-                </td>
-                <td style="width:10%" *ngIf="isEditable">
-                    <i (click)="createbillitemforms()" class="fa fa-cart-plus p-2 text-success"></i>
-                    <i (click)="deletebillitemforms(i)" class="fa fa-trash p-2 text-danger"></i>
-                    <i (click)="deletebillitemforms(i)" class="fa fa-circle-info text-info"></i>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-        </tfoot>
-    </table>
-</div>
+    <div [smartAutoHeight]="isScrollRequired" #billScroll>
+        <table class="table text-secondary ">
+            <thead class="bg-light sticky-top">
+                <tr>
+                    <th></th>
+                    <th>Product Name</th>
+                    <th>Exp date</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Discount</th>
+                    <th>Tax</th>
+                    <th>Net Value</th>
+                    <th *ngIf="isEditable">Actions</th>
+                </tr>
+            </thead>
+            <tbody formArrayName="billitems">
+                <tr *ngFor="let bills of getbillitemsTableArray.controls; let i=
+                    index" [formGroupName]="i">
+                    <td style="width:2%">{{i + 1}}</td>
+                    <td>
+                        <input type="text" class="input-value"
+                            formControlName="productname"
+                            (keyup)="onProductName($event,i)"
+                            [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].productname"
+                            [smartMessage]="false" [smartSubmit]="isbillprint"
+                            smartInputBorder>
+                        <div *ngIf="bills.get('showItems')?.value &&
+                            showProductItems" class="searchbox">
+                            <div class="d-flex">
+                                <table id="billItemsTable" class="table
+                                    table-hover table-sm text-secondary">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Batch Code</th>
+                                            <th>Expiry Date</th>
+                                            <th>Discount</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of productItems">
+                                            <td>{{item?.prodctName}}</td>
+                                            <td>{{item?.batchCode}}</td>
+                                            <td>{{item?.expDate}}</td>
+                                            <td>{{item?.discount}}</td>
+                                            <td>{{item?.qauntity}}</td>
+                                            <td>{{item?.price}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="width:10%">
+                        <input type="text" class="input-value"
+                            formControlName="expirydate"
+                            [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].expirydate"
+                            [smartMessage]="false" [smartSubmit]="isbillprint"
+                            smartInputBorder>
+                    </td>
+                    <td style="width:10%">
+                        <input type="text" class="input-value"
+                            formControlName="quantity"
+                            [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].quantity"
+                            [smartMessage]="false" [smartSubmit]="isbillprint"
+                            smartInputBorder>
+                    </td>
+                    <td style="width:10%">
+                        <input type="text" class="input-value"
+                            formControlName="unitprice"
+                            [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].unitprice"
+                            [smartMessage]="false" [smartSubmit]="isbillprint"
+                            smartInputBorder>
+                    </td>
+                    <td style="width:5%">
+                        <input type="text" class="input-value"
+                            formControlName="discount"
+                            [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].discount"
+                            [smartMessage]="false" [smartSubmit]="isbillprint"
+                            smartInputBorder>
+                    </td>
+                    <td style="width:5%">
+                        <input type="text" class="input-value"
+                            formControlName="tax"
+                            [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].tax"
+                            [smartMessage]="false" [smartSubmit]="isbillprint"
+                            smartInputBorder>
+                    </td>
+                    <td style="width:10%">
+                        <input type="text" class="input-value"
+                            formControlName="netprice"
+                            [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].netprice"
+                            [smartMessage]="false" [smartSubmit]="isbillprint"
+                            smartInputBorder>
+                    </td>
+                    <td style="width:10%" *ngIf="isEditable">
+                        <i (click)="createbillitemforms()" class="fa
+                            fa-cart-plus p-2 text-success"></i>
+                        <i (click)="deletebillitemforms(i)" class="fa fa-trash
+                            p-2 text-danger"></i>
+                        <i (click)="deletebillitemforms(i)" class="fa
+                            fa-circle-info text-info"></i>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
 </form>
 <div class="position-absolute bottom-0 end-0 mb-4" *ngIf="isEditable">
-     <button class="btn btn-success btn-sm m-2" (click)="saveBillDetails()"> 
+    <button class="btn btn-success btn-sm m-2" (click)="saveBillDetails()">
         {{submitTitle}}
     </button>
 </div>
-<ng-template>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Batch Code</th>
-                    <th>Expiry Date</th>
-                    <th>Quantity</th>
-                </tr>
-            </thead>
-            <tbody>
-    
-            </tbody>
-        </table>
-    </div>
-</ng-template>

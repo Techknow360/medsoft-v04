@@ -8,7 +8,7 @@
         </div>
     </div>
     <hr>
-    <app-smart-table [onChangeTrigger]="resetTable"  [OnChange]="true" [data]="tableData" (bodyAction)="onbodyActionClick($event)" (headerAction)="headerActionClick($event)"
+    <app-smart-table [onChangeTrigger]="resetTable"  (pageChange)="onPageChange($event)" [OnChange]="true" [data]="tableData" (bodyAction)="onbodyActionClick($event)" (headerAction)="headerActionClick($event)"
     [tconfig]="tableConfig"></app-smart-table>
 </div>
 

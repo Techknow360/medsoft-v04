@@ -18,6 +18,7 @@ export class SmartTableComponent {
   @Input('OnChange') OnChange : boolean = false;
   @Output('bodyAction') bodyAction : EventEmitter<any> = new EventEmitter();
   @Output('headerAction') headerAction : EventEmitter<any> = new EventEmitter();
+  @Output('pageChange') pageChange : EventEmitter<any> = new EventEmitter();
   @ViewChild('columnfilter') columnfilter:ElementRef;
   page: any = 1;
   count: any = 10;
@@ -98,6 +99,7 @@ export class SmartTableComponent {
   onPageChange(number : number){
     this.page = number;
     this.showEntries('PAGE');
+    this.pageChange.emit(number)
   }
   
   onShowCount(){
@@ -151,6 +153,8 @@ export class SmartTableComponent {
       this.nestedFilter =  this.tabledata.filter((item) => this.nestedSearch(item,key,sText))
       this.tabledata =  this.nestedFilter;
     }
+    this.headerAction.emit({'Action':"coulmnSearch","search":sText,"filed":key})
+
   }
 
   nestedSearch(item,key,sText){

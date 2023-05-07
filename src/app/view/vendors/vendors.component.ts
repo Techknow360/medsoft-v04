@@ -51,6 +51,7 @@ export class VendorsComponent implements OnInit {
     this.tableData = [
       {firmname:'Parthiban PVT LMT',repname:"Parthiban",gstnum:"GST01IND1234",emailid:"parthiban@gmail.com",phonenumber:"97878787897"},
       {firmname:'Sireesha PVT LMT',repname:"Sireesha",gstnum:"GST01IND1234",emailid:"sireesha@gmail.com",phonenumber:"97878787897"},
+      
     ]
   }
 
@@ -64,11 +65,15 @@ export class VendorsComponent implements OnInit {
   }
 
   headerActionClick(type){
-
+    
   }
 
   createNewVendors(){
     this.modalService.open(this.vendorsForm,{centered:false,size:'lg'})
+  }
+
+  onPageChange(page){
+    this.resetTable.next(true)
   }
 
   closeModal(){
