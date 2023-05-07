@@ -23,7 +23,7 @@ export class BillitemsformComponent {
   isbillprint : boolean = false
   isFullScreen : boolean = false
   isEditable : boolean = false
-
+  showProductItems : boolean = false
   constructor( 
     @Inject(DOCUMENT) private document: any,
     private formBuilder: FormBuilder,
@@ -43,14 +43,14 @@ export class BillitemsformComponent {
   @HostListener('window:keypress', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     if(event.key == 'Enter' || event.key == '+'){
+      this.showProductItems =  false
       this.createbillitemforms();
     }
     if(event.key == '-'){
+      this.showProductItems =  false
       this.deletebillitemforms(this.getbillitemsTableArray.length - 1);
     }
   }
-
-
 
   initiateForm(){
     this.billitemform =  this.formBuilder.group({
@@ -75,6 +75,7 @@ export class BillitemsformComponent {
 
   createbillitemforms(){
     const billitemsform = this.formBuilder.group({
+        showItems : [false,Validators.required],
         productname : [null,Validators.required],
         expirydate : [null,Validators.required],
         quantity : [null,Validators.required],
@@ -126,5 +127,35 @@ export class BillitemsformComponent {
       this.isEditable =  true
       this.billitemform.enable()
     }
+  }
+
+  onProductName(data,index){
+    let value  = data.target.value
+    if(value.length > 0){
+      this.updateItemShow(index,true)
+    }else{
+      this.showProductItems =  false
+      this.updateItemShow(index,false)
+    }
+  }
+
+  updateItemShow(index,cond){
+    let i  = 0
+    for(let items  of this.getbillitemsTableArray.getRawValue()){
+      if(i == index && cond){
+        this.showProductItems =  true
+        this.getbillitemsTableArrayControls[i]['controls']['showItems'].patchValue(true)
+        this.getbillitemsTableArrayControls[i]['controls']['showItems'].updateValueAndValidity()
+      }else{
+        this.getbillitemsTableArrayControls[i]['controls']['showItems'].patchValue(false)
+        this.getbillitemsTableArrayControls[i]['controls']['showItems'].updateValueAndValidity()
+      }
+      i++
+    }
+  }
+
+  onProductNameLeave(data,index){
+    let value  = data.target.value
+    this.updateItemShow(index,false)
   }
 }

@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./constform.component.css']
 })
 export class ConstformComponent {
-  vendorsForm! :  FormGroup
+  constantForm! :  FormGroup
   isSubmitted :  boolean = false;
   isEditable : boolean = false;
   constructor(private formBuilder  :  FormBuilder){
@@ -19,7 +19,7 @@ export class ConstformComponent {
   }
 
   createConstantForm(){
-    this.vendorsForm =  this.formBuilder.group({
+    this.constantForm =  this.formBuilder.group({
       type : [null,[Validators.required]],
       constID : [null,[Validators.required]], 
       contValue : [null,[Validators.required]],
@@ -27,11 +27,12 @@ export class ConstformComponent {
     })
   }
   
-  get vendorsFormControl(){
-    return this.vendorsForm.controls
+  get constantFormControl(){
+    return this.constantForm.controls
   }
 
   saveConstantFormDetails(){
     this.isSubmitted = true
+    console.log(this.constantForm.getRawValue())
   }
 }

@@ -18,7 +18,26 @@
             <tr *ngFor="let bills of getbillitemsTableArray.controls; let i = index" [formGroupName]="i">
                 <td style="width:2%">{{i + 1}}</td>
                 <td>
-                    <input type="text" class="input-value" formControlName="productname"  [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].productname"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
+                    <input type="text" class="input-value" formControlName="productname" (blur)="onProductNameLeave($event,i)"  (keyup)="onProductName($event,i)"  [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].productname"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
+                    <div *ngIf="bills.get('showItems')?.value && showProductItems" class="searchbox">
+                          <div class="d-flex">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Batch Code</th>
+                                        <th>Expiry Date</th>
+                                        <th>Discount</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        
+                                </tbody>
+                            </table>
+                          </div>
+                    </div>
                 </td>
                 <td style="width:10%">
                     <input type="text" class="input-value" formControlName="expirydate" [smartErrorMessage]="getbillitemsTableArrayControls[i]['controls'].expirydate"  [smartMessage]="false" [smartSubmit]="isbillprint" smartInputBorder>
@@ -55,3 +74,20 @@
         {{submitTitle}}
     </button>
 </div>
+<ng-template>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Batch Code</th>
+                    <th>Expiry Date</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+        </table>
+    </div>
+</ng-template>
