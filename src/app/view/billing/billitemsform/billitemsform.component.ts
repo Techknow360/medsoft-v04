@@ -24,6 +24,15 @@ export class BillitemsformComponent {
   isFullScreen : boolean = false
   isEditable : boolean = false
   showProductItems : boolean = false
+  productItems : any = []
+  productItemData  :  any  = [
+    {prodctName :"SIREESHA",batchCode:"BAT1567",expDate:"12-2020",discount:"12",qauntity:"120",price:12},
+    {prodctName :"PARTHIBAN",batchCode:"BAT5677",expDate:"04-2021",discount:"22",qauntity:"140",price:112},
+    {prodctName :"AJITH",batchCode:"BAT4564",expDate:"01-2022",discount:"10",qauntity:"160",price:125},
+    {prodctName :"EFFY",batchCode:"BAT146",expDate:"03-2023",discount:"2",qauntity:"190",price:127},
+    {prodctName :"SAI",batchCode:"BAT14646",expDate:"12-2024",discount:"4",qauntity:"150",price:172},
+    {prodctName :"SOMU",batchCode:"BAT86846",expDate:"10-2024",discount:"45",qauntity:"140",price:472}
+  ]
   constructor( 
     @Inject(DOCUMENT) private document: any,
     private formBuilder: FormBuilder,
@@ -131,6 +140,7 @@ export class BillitemsformComponent {
 
   onProductName(data,index){
     let value  = data.target.value
+    this.filterProducts(value)
     if(value.length > 0){
       this.updateItemShow(true,index)
     }else{
@@ -139,6 +149,26 @@ export class BillitemsformComponent {
     }
   }
 
+  filterProducts(value){
+    this.productItems  = this.productItemData.filter((data)=>this.isMatch(data,value))
+    console.log(this.productItems)
+
+  }
+
+  isMatch(item : any,value) {
+    if (item instanceof Object) {
+      return Object.keys(item).some((k) => this.isMatch(item[k],value));
+    } else {
+      var searchItem  = this.stringSanitize(item);
+      var filterdata  = this.stringSanitize(value);
+      return searchItem.indexOf(filterdata) > -1
+    }
+  }
+
+  stringSanitize(value){
+    return value.toString().toLowerCase().trim().replace(/\s+/g, "");
+   }
+   
   updateItemShow(cond,index?){
     let i  = 0
     for(let items  of this.getbillitemsTableArray.getRawValue()){
@@ -163,6 +193,8 @@ export class BillitemsformComponent {
         i++
     }
   }
+
+
 
   // onProductNameLeave(data,index){
   //   let value  = data.target.value
