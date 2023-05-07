@@ -54,6 +54,9 @@ export class UploadComponent implements OnInit{
   }
 
   onSave(){
+      let payload : {
+        
+      }
       this.notify.success("Document Uploaded SuccessFully")
       this.modalServices.dismissAll();
 

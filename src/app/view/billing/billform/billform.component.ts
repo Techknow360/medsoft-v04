@@ -64,6 +64,7 @@ export class BillformComponent implements OnInit {
 
   saveBillDetails(){
     this.isSubmitted = true;
+    console.log(this.billform.getRawValue())
     if(this.billform.valid){
         
     }else{
@@ -86,6 +87,7 @@ export class BillformComponent implements OnInit {
 
 
   getBillItemDetails(data){
+    console.log(data?.data)
     if(data?.data){
       this.billItemsDetailsData =  data?.data
       this.saveBillDetails();

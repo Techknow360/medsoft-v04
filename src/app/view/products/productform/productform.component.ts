@@ -42,6 +42,7 @@ export class ProductformComponent implements OnInit {
 
   saveproductsFormDetails(){
     this.isSubmitted = true
+    console.log(this.productsForm.getRawValue())
     if(this.productsForm.valid){
       this.spinner.show()
     }else{

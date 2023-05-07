@@ -47,5 +47,6 @@ get userFormControl(){
 
 saveUserFormDetails(){
   this.isSubmitted = true;
+  console.log(this.userForm.getRawValue())
 }
 }

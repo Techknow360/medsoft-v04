@@ -46,5 +46,6 @@ get customerFormControl(){
 
 savecustomerFormDetails(){
   this.isSubmitted = true;
+  console.log(this.customerForm.getRawValue())
 }
 }

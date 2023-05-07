@@ -31,8 +31,8 @@ export class ImageCropperComponent {
   }
 
   cropperReady(sourceImageDimensions: any) {
-      console.log('Cropper ready', sourceImageDimensions);
-  }
+
+}
 
   loadImageFailed() {
       console.log('Load failed');

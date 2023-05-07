@@ -84,6 +84,7 @@ export class PaymentformComponent {
 
   savePaymentDetails(){
     this.isSubmitted = true
+    console.log(this.paymentForm.getRawValue())
   }
 
   dynamicValidation(formControls,data,type){

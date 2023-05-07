@@ -44,5 +44,6 @@ export class ProductitemformComponent {
 
   saveproductsitemsFormDetails(){
     this.isSubmitted = true
+    console.log(this.productsitemsForm.getRawValue())
   }
 }

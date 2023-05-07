@@ -41,6 +41,7 @@ export class VendorformComponent implements OnInit {
 
   saveVendorsFormDetails(){
     this.isSubmitted = true
+    console.log(this.vendorsForm.getRawValue());
   }
 
   updateFormMode(){
