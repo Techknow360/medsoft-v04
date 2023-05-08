@@ -11,9 +11,8 @@
 
 tr.normal td {
     color: black;
-    background-color: white;
 }
 tr.highlighted td {
     color: white;
-    background-color: red;
+    background-color: gray;
 }

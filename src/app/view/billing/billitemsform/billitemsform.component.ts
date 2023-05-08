@@ -25,13 +25,15 @@ export class BillitemsformComponent {
   isEditable : boolean = false
   showProductItems : boolean = false
   productItems : any = []
+  tabIndex :  number  = 0
   productItemData  :  any  = [
     {prodctName :"SIREESHA",batchCode:"BAT1567",expDate:"12-2020",discount:"12",qauntity:"120",price:12},
     {prodctName :"PARTHIBAN",batchCode:"BAT5677",expDate:"04-2021",discount:"22",qauntity:"140",price:112},
     {prodctName :"AJITH",batchCode:"BAT4564",expDate:"01-2022",discount:"10",qauntity:"160",price:125},
     {prodctName :"EFFY",batchCode:"BAT146",expDate:"03-2023",discount:"2",qauntity:"190",price:127},
     {prodctName :"SAI",batchCode:"BAT14646",expDate:"12-2024",discount:"4",qauntity:"150",price:172},
-    {prodctName :"SOMU",batchCode:"BAT86846",expDate:"10-2024",discount:"45",qauntity:"140",price:472}
+    {prodctName :"SOMU",batchCode:"BAT86846",expDate:"10-2024",discount:"45",qauntity:"140",price:472},
+    {prodctName :"SOMUS",batchCode:"BAT86846",expDate:"10-2024",discount:"45",qauntity:"140",price:472}
   ]
   constructor( 
     @Inject(DOCUMENT) private document: any,
@@ -52,7 +54,7 @@ export class BillitemsformComponent {
   }
   @HostListener('window:keypress', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    if(event.key == 'Enter' || event.key == '+'){
+    if(event.key == '+'){
       this.createbillitemforms();
       this.forceItemShowDisabled()
     }
@@ -195,8 +197,8 @@ export class BillitemsformComponent {
   }
 
   selectTableRow(){
-    var table = document.getElementById('billItemsTable') as HTMLTableElement
    var  event = ['keypress','keyup'];
+   this.tabIndex = 1
     event.forEach(event =>
       document.addEventListener(event,($event)=>{
         this.onArrowKey($event)
@@ -205,10 +207,30 @@ export class BillitemsformComponent {
   }
 
   onArrowKey(event){
-    if(event.key == 'ArrowUp'){
-        console.log("UP")
-    }else if(event.key == 'ArrowDown'){
-        console.log("DOWN") 
+    var table = document.getElementById('billItemsTable') as HTMLTableElement
+    var trows = table?.rows;
+    var tablength = table?.rows.length - 1 ;
+    if(tablength > 0){
+      if(event.key == 'ArrowUp'){
+        if(this.tabIndex == 1){
+          this.tabIndex =  tablength
+        }else{
+          this.tabIndex = this.tabIndex - 1
+        }
+      }else if(event.key == 'ArrowDown'){
+        if(this.tabIndex < tablength ){
+            this.tabIndex = this.tabIndex + 1
+        }else{
+          this.tabIndex  = 1
+        }
+      }
+      for(let i = 1;i<=tablength;i++){
+        if(this.tabIndex == i){
+          trows[i].className = 'highlighted'
+        }else{
+          trows[i].className = 'normal'
+        }
+      }
     }
   }
 
