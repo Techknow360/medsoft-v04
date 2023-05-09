@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SmartapiService } from 'src/app/api-services/smartapi.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   isSubmitted :  boolean = false
   constructor(
     private formBuilder  :  FormBuilder,
-    private route : Router
+    private route : Router,
+    private apiServices :  SmartapiService
     ){}
 
   ngOnInit(): void {
@@ -33,7 +35,8 @@ export class LoginComponent implements OnInit {
   onLogin(){
     this.isSubmitted =  true
     if(this.loginForm.valid){
-      this.route.navigate(['dashboard'])
+      this.apiServices.login()
+      //this.route.navigate(['dashboard'])
     }
   }
 

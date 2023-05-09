@@ -12,6 +12,10 @@ import { FooterComponent } from './shared/base/footer/footer.component';
 import { TopheaderComponent } from './shared/base/topheader/topheader.component';
 import { NotfoundComponent } from './shared/base/notfound/notfound.component';
 import { SmartpasswordvisibleDirective } from './shared/core/directives/smartpasswordvisible.directive';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './api-services/interceptor.service';
+import { SmartapiService } from './api-services/smartapi.service';
+import { ApiEndpointsService } from './api-services/core/api-endpoints.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,7 @@ import { SmartpasswordvisibleDirective } from './shared/core/directives/smartpas
     SmartpasswordvisibleDirective,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     ViewModule,
@@ -32,7 +37,11 @@ import { SmartpasswordvisibleDirective } from './shared/core/directives/smartpas
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  },SmartapiService,ApiEndpointsService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
