@@ -10,7 +10,6 @@ export class NotifyService {
 
   constructor(private toastr: ToastrService) {
     this.config = {
-      positionClass : 'toast-top-center',
       toastClass : 'mt-4 ngx-toastr'
     }
    }

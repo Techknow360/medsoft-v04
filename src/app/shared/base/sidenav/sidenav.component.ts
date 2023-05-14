@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
   smartSideNav : any  = []
+  activesidebar : any
   constructor() { }
 
   ngOnInit(): void {
@@ -27,6 +28,10 @@ export class SidenavComponent implements OnInit {
       {title:"Constant",icon:"fa-solid fa-pencil",navigateLink:"/constant"},
       {title:"Bill Details",icon:"fa-solid fa-file",navigateLink:'/billmanagement'},
     ]
+  }
+
+  onActivesidebar(link){
+    
   }
 
   ngAfterViewInit(){

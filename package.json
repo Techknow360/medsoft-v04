@@ -23,6 +23,7 @@
     "bootstrap": "^5.2.3",
     "chart.js": "^4.2.1",
     "jquery": "^3.6.4",
+    "json-server": "^0.17.3",
     "ngx-bootstrap": "^6.2.0",
     "ngx-image-cropper": "^6.3.2",
     "ngx-pagination": "^6.0.3",

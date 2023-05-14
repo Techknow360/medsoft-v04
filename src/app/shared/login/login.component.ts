@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
   onLogin(){
     this.isSubmitted =  true
     if(this.loginForm.valid){
-      this.apiServices.login()
+     console.log(this.apiServices.smartGet('users')) 
       //this.route.navigate(['dashboard'])
     }
   }

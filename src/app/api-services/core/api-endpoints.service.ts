@@ -10,12 +10,12 @@ export class ApiEndpointsService {
 
   constructor() { }
   public createUrl(action: string): string {
-    const urlBuilder: UrlBuilder = new UrlBuilder(environment.BASE_API_URL,action);
+    const urlBuilder: UrlBuilder = new UrlBuilder(environment.BASE_API_URL[0],action);
     return urlBuilder.toString(); 
   }
 
   public createUrlWithQueryParameters(action: string,  queryStringHandler?: (queryStringParameters: QueryStringParameters) => void): string {
-    const urlBuilder: UrlBuilder = new UrlBuilder(environment.BASE_API_URL, action);
+    const urlBuilder: UrlBuilder = new UrlBuilder(environment.BASE_API_URL[0], action);
     if (queryStringHandler) {
       queryStringHandler(urlBuilder.queryString);
     }
@@ -30,9 +30,7 @@ export class ApiEndpointsService {
           `/${encodeURIComponent(pathVariable.toString())}`;
       }
     }
-    const urlBuilder: UrlBuilder = new UrlBuilder(
-     environment.BASE_API_URL,  
-      `${action}${encodedPathVariablesUrl}`
+    const urlBuilder: UrlBuilder = new UrlBuilder(environment.BASE_API_URL[0], `${action}${encodedPathVariablesUrl}`
     );
     return urlBuilder.toString();
   }
