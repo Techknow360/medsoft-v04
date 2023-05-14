@@ -16,6 +16,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './api-services/interceptor.service';
 import { SmartapiService } from './api-services/smartapi.service';
 import { ApiEndpointsService } from './api-services/core/api-endpoints.service';
+import { SpinnerInterceptorService } from './api-services/core/spinner.interceptor.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -35,13 +37,13 @@ import { ApiEndpointsService } from './api-services/core/api-endpoints.service';
     ViewModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
-  providers: [ {
-    provide: HTTP_INTERCEPTORS,
-    useClass: InterceptorService,
-    multi: true
-  },SmartapiService,ApiEndpointsService],
+  providers: [ 
+    {provide: HTTP_INTERCEPTORS,useClass: InterceptorService,multi: true},
+    {provide: HTTP_INTERCEPTORS,useClass: SpinnerInterceptorService,multi: true },
+    SmartapiService,ApiEndpointsService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
