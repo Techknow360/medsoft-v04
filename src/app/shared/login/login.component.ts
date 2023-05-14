@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SecurityService } from 'src/app/api-services/common/security.service';
 import { SmartapiService } from 'src/app/api-services/smartapi.service';
+
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder  :  FormBuilder,
     private route : Router,
-    private apiServices :  SmartapiService
+    private apiServices :  SmartapiService,
+    private secService : SecurityService
     ){}
 
   ngOnInit(): void {
@@ -35,8 +38,9 @@ export class LoginComponent implements OnInit {
   onLogin(){
     this.isSubmitted =  true
     if(this.loginForm.valid){
-     console.log(this.apiServices.smartGet('users')) 
-      //this.route.navigate(['dashboard'])
+      this.apiServices.smartPost('users',this.loginForm.getRawValue(),true).subscribe((data)=>{
+        console.log(data)
+      })
     }
   }
 

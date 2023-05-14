@@ -13,14 +13,12 @@ export class InterceptorService {
 
   constructor(
     private router: Router,
-    private notify : NotifyService
+    private notify : NotifyService,
   ) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     request = request.clone({
-
-
+      headers: request.headers.set('Content-Type','text/plain'),
     })
 
     return next.handle(request).pipe(tap(() => {

@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiEndpointsService } from './core/api-endpoints.service';
 import { ApiHttpService } from './core/api-http.service';
-import { QueryStringParameters } from './core/query-string-parameters';
-import { Observable } from 'rxjs';
+import { SecurityService } from './common/security.service';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -11,30 +12,32 @@ import { Observable } from 'rxjs';
 export class SmartapiService {
   constructor(
     private apiHttpServices: ApiHttpService,
-    private apiEndPointServices: ApiEndpointsService
+    private apiEndPointServices: ApiEndpointsService,
+    private securityService: SecurityService
   ) {}
 
-  public smartPost(url, payload, secure = false, environment = 0) {
-   this.apiHttpServices.post(url, payload).subscribe((response) => {
-      return response
-    })
+  public smartPost(url, payload, encrypt = false,urlIndex = 0) {
+    if(encrypt || environment.RES_REQ_SECURITY){
+      payload =  this.securityService.encrypt(payload)
+    }
+     return this.apiHttpServices.post(url, payload)
   }
 
-  public smartGet(url, secure = false, environment = 0) {
-   this.apiHttpServices.get(url).subscribe((response) => {
-    return response
-   });
+  public smartGet(url,decrypt = false, urlIndex = 0) {
+    if(decrypt || environment.RES_REQ_SECURITY){
+      url = this.securityService.decrypt(url)
+    }
+   return this.apiHttpServices.get(url)
   }
 
-  public smartPut(url, payload, secure = false, environment = 0) {
-  this.apiHttpServices.put(url, payload).subscribe((response) => {
-    return response
-   });
+  public smartPut(url, payload, encrypt = false, urlIndex = 0) {
+    if(encrypt || environment.RES_REQ_SECURITY){
+      payload =  this.securityService.encrypt(payload)
+    }
+    return this.apiHttpServices.put(url, payload)
   }
 
-  public smartDelete(url, secure = false, environment = 0) {
-   this.apiHttpServices.delete(url).subscribe((response) => {
-      return response
-   });
+  public smartDelete(url, urlIndex = 0) {
+   return this.apiHttpServices.delete(url)
   }
 }
