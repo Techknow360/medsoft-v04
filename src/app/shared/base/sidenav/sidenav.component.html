@@ -3,7 +3,7 @@
     <div class="sidebar" id="smart-sidebar">
         <div class="sidebar_inner">
             <ul>
-                <li *ngFor="let data of smartSideNav">
+                <li *ngFor="let data of smartSideNav" [routerLinkActive]="['sidebar-active']">
                     <a routerLink={{data.navigateLink}}>
                         <span class="icon"><i  [ngClass]="data.icon"></i></span>
                         <span class="text">{{data.title}}</span>

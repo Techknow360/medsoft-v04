@@ -26,7 +26,6 @@ export class SidenavComponent implements OnInit {
       {title:"Profile",icon:"fa-solid fa-address-card",navigateLink:"/profile"},
       {title:"Constant",icon:"fa-solid fa-pencil",navigateLink:"/constant"},
       {title:"Bill Details",icon:"fa-solid fa-file",navigateLink:'/billmanagement'},
-      {title:"",icon:"",navigateLink:''}
     ]
   }
 
