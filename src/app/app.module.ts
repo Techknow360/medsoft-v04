@@ -13,7 +13,7 @@ import { TopheaderComponent } from './shared/base/topheader/topheader.component'
 import { NotfoundComponent } from './shared/base/notfound/notfound.component';
 import { SmartpasswordvisibleDirective } from './shared/core/directives/smartpasswordvisible.directive';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InterceptorService } from './api-services/interceptor.service';
+import { InterceptorService } from './api-services/core/interceptor.service';
 import { SmartapiService } from './api-services/smartapi.service';
 import { ApiEndpointsService } from './api-services/core/api-endpoints.service';
 import { SpinnerInterceptorService } from './api-services/core/spinner.interceptor.service';

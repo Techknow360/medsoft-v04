@@ -39,7 +39,8 @@ export class LoginComponent implements OnInit {
   onLogin(){
     this.isSubmitted =  true
     if(this.loginForm.valid){
-        this.apiServices.smartPost('users',this.loginForm.getRawValue(),true).subscribe((data)=>{
+      let payload = this.loginForm.getRawValue()
+        this.apiServices.smartPost('LOGIN',payload,true).subscribe((data)=>{
           
         })
     }

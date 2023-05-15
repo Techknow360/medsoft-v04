@@ -4,7 +4,7 @@ import { ApiEndpointsService } from './core/api-endpoints.service';
 import { ApiHttpService } from './core/api-http.service';
 import { SecurityService } from './common/security.service';
 import { environment } from 'src/environments/environment';
-
+import { API_ROUTER } from './api-router';
 
 @Injectable({
   providedIn: 'root',
@@ -16,28 +16,40 @@ export class SmartapiService {
     private securityService: SecurityService
   ) {}
 
-  public smartPost(url, payload, encrypt = false,urlIndex = 0) {
+  public smartPost(url, payload, encrypt = false,customRoute = false,urlIndex = 0) {
     if(encrypt || environment.RES_REQ_SECURITY){
       payload =  this.securityService.encrypt(payload)
+    }
+    if(!customRoute){
+      url = API_ROUTER[url].url
     }
      return this.apiHttpServices.post(url, payload)
   }
 
-  public smartGet(url,decrypt = false, urlIndex = 0) {
+  public smartGet(url,decrypt = false,customRoute = false,urlIndex = 0) {
     if(decrypt || environment.RES_REQ_SECURITY){
       url = this.securityService.decrypt(url)
+    }
+    if(!customRoute){
+      url = API_ROUTER[url].url
     }
    return this.apiHttpServices.get(url)
   }
 
-  public smartPut(url, payload, encrypt = false, urlIndex = 0) {
+  public smartPut(url, payload, encrypt = false,customRoute = false, urlIndex = 0) {
     if(encrypt || environment.RES_REQ_SECURITY){
       payload =  this.securityService.encrypt(payload)
+    }
+    if(!customRoute){
+      url = API_ROUTER[url].url
     }
     return this.apiHttpServices.put(url, payload)
   }
 
-  public smartDelete(url, urlIndex = 0) {
+  public smartDelete(url,customRoute = false, urlIndex = 0) {
+    if(!customRoute){
+      url = API_ROUTER[url].url
+    }
    return this.apiHttpServices.delete(url)
   }
 }

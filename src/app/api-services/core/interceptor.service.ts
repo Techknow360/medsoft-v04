@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { NotifyService } from './common/notify.service';
-import { ERRORS } from '../helpers/errors';
+import { NotifyService } from '../common/notify.service';
+import { ERRORS } from '../../helpers/errors';
 
 @Injectable({
   providedIn: 'root'

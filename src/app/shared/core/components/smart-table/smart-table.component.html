@@ -58,7 +58,7 @@
         </thead>
         <tbody *ngIf="tabledata?.length> 0 || tabledata?.length != null"
             class="table-group-divider">
-            <tr *ngFor="let tbody of tabledata | paginate: { itemsPerPage:count, currentPage: page}; let i= index" class="ft-table-body">
+            <tr *ngFor="let tbody of tabledata | paginate: { itemsPerPage:count, currentPage: page,totalItems : totalCount}; let i= index" class="ft-table-body">
                 <td *ngFor="let tdata of tconfig.config">
                     <span *ngIf="tdata.type=='db' && !tdata.uppercase">{{tbody[tdata.tbody] || '-' }}</span>
                     <span *ngIf="tdata.type=='db' && tdata.uppercase"> {{tbody[tdata.tbody] | uppercase }}</span>
