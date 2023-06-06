@@ -11,7 +11,7 @@
 import { environment } from "src/environments/environment"
 
 export const API_ROUTER = {
-    LOGIN  : {url :'users',method:'POST'}
+    LOGIN  : {url :'user',method:'POST'}
 }
 
 export const SPINNER_BLOCK_API = [

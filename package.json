@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ci": "ng build --source-map=false   --base-href https://techknow360.github.io/medsoft-v04/ --deploy-url=https://techknow360.github.io/medsoft-v04/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
