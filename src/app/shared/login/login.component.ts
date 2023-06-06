@@ -12,37 +12,34 @@ import { SmartapiService } from 'src/app/api-services/smartapi.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm : FormGroup;
-  isSubmitted :  boolean = false
+  loginForm: FormGroup;
+  isSubmitted: boolean = false
   constructor(
-    private formBuilder  :  FormBuilder,
-    private route : Router,
-    private apiServices :  SmartapiService,
-    private spinner :SpinnerService
-    ){}
+    private formBuilder: FormBuilder,
+    private route: Router,
+    private apiServices: SmartapiService,
+    private spinner: SpinnerService
+  ) { }
 
   ngOnInit(): void {
     this.createLoginForm()
   }
 
-  createLoginForm(){
+  createLoginForm() {
     this.loginForm = this.formBuilder.group({
-      userName  : [null,[Validators.required,Validators.maxLength(120)]],
-      userPassword  : [null,[Validators.required,Validators.minLength(8),Validators.maxLength(15)]]
+      userName: [null, [Validators.required, Validators.maxLength(120)]],
+      userPassword: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(15)]]
     })
   }
 
-  get loginFormControls(){
+  get loginFormControls() {
     return this.loginForm.controls
   }
 
-  onLogin(){
-    this.isSubmitted =  true
-    if(this.loginForm.valid){
-      let payload = this.loginForm.getRawValue()
-        this.apiServices.smartPost('LOGIN',payload,true).subscribe((data)=>{
-          
-        })
+  onLogin() {
+    this.isSubmitted = true
+    if (this.loginForm.valid) {
+      this.route.navigate(['/dashboard'])
     }
   }
 
